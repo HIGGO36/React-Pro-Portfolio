@@ -5,6 +5,7 @@
   "private": true,
   "dependencies": {
     "colorthief": "^2.2.0",
+    "dotenv": "^8.6.0",
     "enzyme": "^3.11.0",
     "enzyme-adapter-react-16": "^1.15.6",
     "gh-pages": "^2.1.1",
@@ -22,14 +23,15 @@
     "sass": "^1.32.8"
   },
   "scripts": {
-    "predeploy": "npm run build",
+    "predeploy": "npm install && npm run build",
     "start": "node fetch.js && react-scripts start",
     "build": "node fetch.js && react-scripts build",
     "deploy": "gh-pages -b master -d build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "format": "prettier --write \"./**/*.{js,css,json,scss}\"",
-    "check-format": "prettier -c \"./**/*.{js,css,json,scss}\""
+    "check-format": "npm run format -- --check",
+    "prettify": "npm run format -- --write"
   },
   "eslintConfig": {
     "extends": "react-app"
@@ -52,7 +54,6 @@
     ]
   },
   "devDependencies": {
-    "dotenv": "^8.2.0",
     "prettier": "^2.3.1"
   }
 }
