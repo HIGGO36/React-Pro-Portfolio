@@ -26,7 +26,7 @@ const greeting = {
     "Creative, innovative, and reliable web developer proficient in HTML, CSS, and JavaScript. Excels in front-end responsive web development, user interface design, mobile testing, prototyping, and trouble-shooting within a team or individual setting. "
   ),
   resumeLink:
-    "https://drive.google.com/file/d/1ofFdKF_mqscH8WvXkSObnVvC9kK7Ldlu/view?usp=sharing", // Set to empty to hide the button
+    "https://docs.google.com/document/d/12f1ErIoy-OFDym7pqYxdqqjHHGd7LVArcMwYckSgrhA/edit?usp=sharing", // Set to empty to hide the button
   displayGreeting: true // Set false to hide this section, defaults to true
 };
 
@@ -48,16 +48,16 @@ const socialMediaLinks = {
 // Skills Section
 
 const skillsSection = {
-  title: "What I do",
-  subTitle: "CRAZY FULL STACK DEVELOPER WHO WANTS TO EXPLORE EVERY TECH STACK",
+  title: "My Developer Skills",
+  subTitle: "- My past professional work has been primarly as a Front End developer, with some of my core abilities listed below.",
   skills: [
     emoji(
-      "⚡ Develop highly interactive Front end / User Interfaces for your web and mobile applications"
+      "🌞 I have a wide range of abilities with designing and developing web sites, interactice components and other types of assets."),
+      
+      emoji("🌞 I focus on using a mobile-first approach while keeping an eye on accessiblity and performance to deliver top notch user experiences."
     ),
-    emoji("⚡ Progressive Web Applications ( PWA ) in normal and SPA Stacks"),
-    emoji(
-      "⚡ Integration of third party services such as Firebase/ AWS / Digital Ocean"
-    )
+    emoji("🌞 Currently learning more about Progressive Web Applications ( PWA ). Web Services and the Integration of third party services such as AWS.")
+
   ],
 
   /* Make Sure to include correct Font Awesome Classname to view your icon
@@ -89,33 +89,46 @@ https://fontawesome.com/icons?d=gallery */
       fontAwesomeClassname: "fab fa-node"
     },
     {
-      skillName: "swift",
-      fontAwesomeClassname: "fab fa-swift"
+      skillName: "react",
+      fontAwesomeClassname: "fab fa-react"
     },
     {
       skillName: "npm",
       fontAwesomeClassname: "fab fa-npm"
     },
     {
-      skillName: "sql-database",
-      fontAwesomeClassname: "fas fa-database"
-    },
-    {
-      skillName: "aws",
-      fontAwesomeClassname: "fab fa-aws"
-    },
-    {
-      skillName: "firebase",
-      fontAwesomeClassname: "fas fa-fire"
-    },
-    {
-      skillName: "python",
-      fontAwesomeClassname: "fab fa-python"
-    },
-    {
       skillName: "docker",
       fontAwesomeClassname: "fab fa-docker"
-    }
+    },
+    {
+      skillName: "cPanel",
+      fontAwesomeClassname: "fab fa-cpanel"
+    },
+    {
+      skillName: "github",
+      fontAwesomeClassname: "fab fa-github"
+    },
+    {
+      skillName: "terminal",
+      fontAwesomeClassname: "fas fa-terminal"
+    },
+    {
+      skillName: "vscode",
+      fontAwesomeClassname: "fab fa-vscode"
+    },
+    {
+      skillName: "chrome",
+      fontAwesomeClassname: "fab fa-chrome"
+    },
+    {
+      skillName: "firefox",
+      fontAwesomeClassname: "fab fa-firefox-browser"
+    },
+    {
+      skillName: "codepen",
+      fontAwesomeClassname: "fab fa-codepen"
+    },
+
   ],
   display: true // Set false to hide this section, defaults to true
 };
@@ -126,23 +139,26 @@ const educationInfo = {
   display: true, // Set false to hide this section, defaults to true
   schools: [
     {
-      schoolName: "Harvard University",
-      logo: require("./assets/images/harvardLogo.png"),
-      subHeader: "Master of Science in Computer Science",
-      duration: "September 2017 - April 2019",
-      desc: "Participated in the research of XXX and published 3 papers.",
+      schoolName: "Florida Institute of Technology",
+      logo: require("./assets/images/FIT-seal-Logo.png"),
+      subHeader: "Master of Science in Computer Information Systems",
+      duration: "January 2020 - Dec 2023 (expected graduation time)",
+      desc: "Completed 9 out of the 10 required program courses, with the capstone remaining.",
       descBullets: [
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit",
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit"
+        "current GPA 3.2",
+        "Courses Completed: "
       ]
     },
     {
-      schoolName: "Stanford University",
-      logo: require("./assets/images/stanfordLogo.png"),
-      subHeader: "Bachelor of Science in Computer Science",
-      duration: "September 2013 - April 2017",
-      desc: "Ranked top 10% in the program. Took courses about Software Engineering, Web Security, Operating Systems, ...",
-      descBullets: ["Lorem ipsum dolor sit amet, consectetur adipiscing elit"]
+      schoolName: "Florida Institute of Technology",
+      logo: require("./assets/images/FIT-seal-Logo.png"),
+      subHeader: "Bachelor of Science in Computer Information Systems",
+      duration: "Jan 2014 - Dec 2016",
+      desc: "Attended the schools for computer programming, engineering and computer science while completeing all the courses from this degree program.",
+      descBullets: [
+        "GPA 3.3",
+      "Courses Completed: "
+      ]
     }
   ]
 };
@@ -153,16 +169,28 @@ const techStack = {
   viewSkillBars: true, //Set it to true to show Proficiency Section
   experience: [
     {
-      Stack: "Frontend/Design", //Insert stack or technology you have experience in
+      Stack: "Frontend Development", //Insert stack or technology you have experience in
+      progressPercentage: "85%" //Insert relative proficiency in percentage
+    },
+    {
+      Stack: "Responsive Web Design", //Insert stack or technology you have experience in
       progressPercentage: "90%" //Insert relative proficiency in percentage
     },
     {
-      Stack: "Backend",
-      progressPercentage: "70%"
+      Stack: "Interactive User Experiences",
+      progressPercentage: "85%"
     },
     {
-      Stack: "Programming",
-      progressPercentage: "60%"
+      Stack: "Data Visualization",
+      progressPercentage: "75%"
+    },
+    {
+      Stack: "Web Accessibility",
+      progressPercentage: "90%"
+    },
+    {
+      Stack: "Team Work & Problem Solving",
+      progressPercentage: "95%"
     }
   ],
   displayCodersrank: false // Set true to display codersrank badges section need to changes your username in src/containers/skillProgress/skillProgress.js:17:62, defaults to false
@@ -174,29 +202,58 @@ const workExperiences = {
   display: true, //Set it to true to show workExperiences Section
   experience: [
     {
-      role: "Software Engineer",
-      company: "Facebook",
-      companylogo: require("./assets/images/facebookLogo.png"),
-      date: "June 2018 – Present",
-      desc: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+      role: "Co-Founder & Managing Member",
+      company: "Nftradables, LLC.",
+      companylogo: require("./assets/images/nftelite-tradables-logo-yellow.jpeg"),
+      date: "May 2022 – January 2023",
+      desc: "Co-Founded a small organization focused on web 3.0 non-fungible token technologies for usage in launching a new project on the Ethereum blockchain.",
       descBullets: [
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit",
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit"
-      ]
+        "Gained advanced web 3.0 technical and overall ecosystems knowledge",
+        "Created a business plan, short-term project goals that we managed using agile scrum methodology.",
+        "Hired an international contracted employee to help with blockchain smart contracts.", 
+        "Worked with our team to plan, design and develop a beta version of our nft marketplace project."   
+       ]
     },
     {
-      role: "Front-End Developer",
-      company: "Quora",
-      companylogo: require("./assets/images/quoraLogo.png"),
-      date: "May 2017 – May 2018",
-      desc: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
+      role: "User-Interface Developer",
+      company: "Unisys Corporation",
+      companylogo: require("./assets/images/Unisys-U-Logo.png"),
+      date: "Feb 2019 – Dec 2019",
+      desc: "One of three primary developers in the creation and initial deployment for second version of their universal design system supporting multiple applications under the CBP umbrella.",
+      descBullets: [
+        "Primarily used tools like: Github, Npm, Yarn, Travis CI, Gatsby, Webpack4",
+        "Set up an intermediate-level Webpack environment for a medium-scale web application writing mostly in JSON.",
+        "Configured custom loaders for handling CSS and image assets.", 
+        "Overcame challenges with integrating Webpack into the project’s testing framework, asynchronous loading and compatibility issues with multiple web browsers.",   
+        "Wrote “Build Scripts” in some of their package.json files used in the CBP Theme application that help with automating tasks like compiling source code, bundling files, and optimizing assets for deployment.",
+        "Resulted in about a 50% reduction in build times and a more efficient overall codebase."
+       ]
     },
     {
-      role: "Software Engineer Intern",
-      company: "Airbnb",
-      companylogo: require("./assets/images/airbnbLogo.png"),
-      date: "Jan 2015 – Sep 2015",
-      desc: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
+      role: "Web Developer",
+      company: "Birchwood Media",
+      companylogo: require("./assets/images/remote-dev-1.jpg"),
+      date: "Oct 2018 – June 2019",
+      desc: "Modernized an older PHP website called 'Old-Friends.co's user interface using JavaScript, CSS and HTML, while being required to keep a very similar theme while also leaving the original framework in place.",
+      descBullets: [
+        "Overhauled the website’s user interface by creating from scratch new global web elements such as navigation, layout, and interactive web forms.",
+        "Built a new and intuitive navigation system that streamlined user journeys and improved engagement metrics by over 100%.",
+        "Designed and developed a responsive mobile friendly layout that adapts seamlessly to different screen sizes, ensuring a consistent user experience across all devices.", 
+        "Implemented interactive web forms to enhance user engagement, enabling visitors to easily submit inquiries, feedback, open and close account requests, and other types of requests through the website."
+       ]
+    },
+    {
+      role: "Application Systems Developer II & Certified DHS 508 Trusted Tester (TT)",
+      company: "Cascades Technologies, Inc.",
+      companylogo: require("./assets/images/CTI-logo.png"),
+      date: "April 2017 – September 2018",
+      desc: "Supported multiple web service teams front-end web development client requests for the FDIC.gov website.",
+      descBullets: [
+        "Designed, developed, rapidly prototyped, tested and deployed for production a new global user-interface web elements for site navigation.",
+        "Solved a high priority U.S. Government 508 Web Accessibility site minimum testing score requirement across more than 20,000 pages by primarly leveraging Javascript and jQuery.",
+        "Was first employee in history of this company to successfully earn the '508 Trusted Tester Certification for Software and Web Applications'.", 
+        "Worked with our team to plan, design and develop a beta version of our nft marketplace project." 
+       ]
     }
   ]
 };
@@ -209,172 +266,49 @@ const openSource = {
   display: true // Set false to hide this section, defaults to true
 };
 
-// Some big projects you have worked on
-
-const bigProjects = {
-  title: "Big Projects",
-  subtitle: "SOME STARTUPS AND COMPANIES THAT I HELPED TO CREATE THEIR TECH",
-  projects: [
-    {
-      image: require("./assets/images/saayaHealthLogo.webp"),
-      projectName: "Saayahealth",
-      projectDesc: "Lorem ipsum dolor sit amet, consectetur adipiscing elit",
-      footerLink: [
-        {
-          name: "Visit Website",
-          url: "http://saayahealth.com/"
-        }
-        //  you can add extra buttons here.
-      ]
-    },
-    {
-      image: require("./assets/images/nextuLogo.webp"),
-      projectName: "Nextu",
-      projectDesc: "Lorem ipsum dolor sit amet, consectetur adipiscing elit",
-      footerLink: [
-        {
-          name: "Visit Website",
-          url: "http://nextu.se/"
-        }
-      ]
-    }
-  ],
-  display: true // Set false to hide this section, defaults to true
-};
-
 // Achievement Section
 // Include certificates, talks etc
 
 const achievementSection = {
-  title: emoji("Achievements And Certifications 🏆 "),
+  title: emoji("Certifications 📜"),
   subtitle:
-    "Achievements, Certifications, Award Letters and Some Cool Stuff that I have done !",
+    "for Web Development",
 
   achievementsCards: [
     {
-      title: "Google Code-In Finalist",
+      title: "Section 508 Trusted Tester Certification for Software and Web Applications",
       subtitle:
-        "First Pakistani to be selected as Google Code-in Finalist from 4000 students from 77 different countries.",
-      image: require("./assets/images/codeInLogo.webp"),
-      imageAlt: "Google Code-In Logo",
+        "I took courses and final TT exam through the OAST program provided by the Department of Homeland Security.",
+      image: require("./assets/images/OAST-TT-Logo.jpg"),
+      imageAlt: "508 Trusted Tester Certification v3 for Web & Applications from the DHS",
       footerLink: [
         {
           name: "Certification",
-          url: "https://drive.google.com/file/d/0B7kazrtMwm5dYkVvNjdNWjNybWJrbndFSHpNY2NFV1p4YmU0/view?usp=sharing"
+          url: "https://docs.google.com/document/d/1WSSGtZ37w4eEKrfVQe8sTJAiDDYaYlxha9NIgHSV3Ws/edit?usp=sharingg"
         },
         {
-          name: "Award Letter",
-          url: "https://drive.google.com/file/d/0B7kazrtMwm5dekxBTW5hQkg2WXUyR3QzQmR0VERiLXlGRVdF/view?usp=sharing"
+          name: "Exam Results",
+          url: "https://docs.google.com/document/d/1FX88Y-Pcjgb86qWw0DAsMEAQiSS4AucLw38uTw5s_A8/edit?usp=sharing"
         },
         {
-          name: "Google Code-in Blog",
-          url: "https://opensource.googleblog.com/2019/01/google-code-in-2018-winners.html"
-        }
-      ]
-    },
-    {
-      title: "Google Assistant Action",
-      subtitle:
-        "Developed a Google Assistant Action JavaScript Guru that is available on 2 Billion devices world wide.",
-      image: require("./assets/images/googleAssistantLogo.webp"),
-      imageAlt: "Google Assistant Action Logo",
-      footerLink: [
-        {
-          name: "View Google Assistant Action",
-          url: "https://assistant.google.com/services/a/uid/000000100ee688ee?hl=en"
-        }
-      ]
-    },
-
-    {
-      title: "PWA Web App Developer",
-      subtitle: "Completed Certifcation from SMIT for PWA Web App Development",
-      image: require("./assets/images/pwaLogo.webp"),
-      imageAlt: "PWA Logo",
-      footerLink: [
-        {name: "Certification", url: ""},
-        {
-          name: "Final Project",
-          url: "https://pakistan-olx-1.firebaseapp.com/"
+          name: "Section 508",
+          url: "https://www.dhs.gov/508-testing"
         }
       ]
     }
-  ],
-  display: true // Set false to hide this section, defaults to true
-};
 
-// Blogs Section
-
-const blogSection = {
-  title: "Blogs",
-  subtitle:
-    "With Love for Developing cool stuff, I love to write and teach others what I have learnt.",
-  displayMediumBlogs: "true", // Set true to display fetched medium blogs instead of hardcoded ones
-  blogs: [
-    {
-      url: "https://blog.usejournal.com/create-a-google-assistant-action-and-win-a-google-t-shirt-and-cloud-credits-4a8d86d76eae",
-      title: "Win a Google Assistant Tshirt and $200 in Google Cloud Credits",
-      description:
-        "Do you want to win $200 and Google Assistant Tshirt by creating a Google Assistant Action in less then 30 min?"
-    },
-    {
-      url: "https://medium.com/@saadpasta/why-react-is-the-best-5a97563f423e",
-      title: "Why REACT is The Best?",
-      description:
-        "React is a JavaScript library for building User Interface. It is maintained by Facebook and a community of individual developers and companies."
-    }
-  ],
-  display: true // Set false to hide this section, defaults to true
-};
-
-// Talks Sections
-
-const talkSection = {
-  title: "TALKS",
-  subtitle: emoji(
-    "I LOVE TO SHARE MY LIMITED KNOWLEDGE AND GET A SPEAKER BADGE 😅"
-  ),
-
-  talks: [
-    {
-      title: "Build Actions For Google Assistant",
-      subtitle: "Codelab at GDG DevFest Karachi 2019",
-      slides_url: "https://bit.ly/saadpasta-slides",
-      event_url: "https://www.facebook.com/events/2339906106275053/"
-    }
-  ],
-  display: true // Set false to hide this section, defaults to true
-};
-
-// Podcast Section
-
-const podcastSection = {
-  title: emoji("Podcast 🎙️"),
-  subtitle: "I LOVE TO TALK ABOUT MYSELF AND TECHNOLOGY",
-
-  // Please Provide with Your Podcast embeded Link
-  podcast: [
-    "https://anchor.fm/codevcast/embed/episodes/DevStory---Saad-Pasta-from-Karachi--Pakistan-e9givv/a-a15itvo"
   ],
   display: true // Set false to hide this section, defaults to true
 };
 
 const contactInfo = {
   title: emoji("Contact Me ☎️"),
-  subtitle:
-    "Discuss a project or just want to say hi? My Inbox is open for all.",
-  number: "+92-0000000000",
+  subtitle: "Discuss a project or just want to say hi? My Inbox is open for all.",
+  number: "",
   email_address: "jwebdev99@protonmail.com"
 };
 
-// Twitter Section
-
-const twitterDetails = {
-  userName: "twitter", //Replace "twitter" with your twitter username without @
-  display: true // Set true to display this section, defaults to false
-};
-
-const isHireable = false; // Set false if you are not looking for a job. Also isHireable will be display as Open for opportunities: Yes/No in the GitHub footer
+const isHireable = true; // Set false if you are not looking for a job. Also isHireable will be display as Open for opportunities: Yes/No in the GitHub footer
 
 export {
   illustration,
@@ -386,12 +320,7 @@ export {
   techStack,
   workExperiences,
   openSource,
-  bigProjects,
   achievementSection,
-  blogSection,
-  talkSection,
-  podcastSection,
   contactInfo,
-  twitterDetails,
   isHireable
 };
