@@ -22,6 +22,10 @@ RUN npm audit fix
 # Bundle app source
 COPY . /app
 
+# Copy the images folder to the public directory in the container
+COPY ./src/assets/images /app/public/images
+
+
 # Make port 3000 available to the world outside this container
 EXPOSE 3000
 
