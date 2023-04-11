@@ -5,8 +5,3 @@
 *.png binary
 *.webp binary
 *.woff binary
-
-# This tells Git that the file should be treated as a binary file and that line endings should not be converted.
-src/assets/images/nftelite-tradables-logo-yellow.jpeg -text
-
-

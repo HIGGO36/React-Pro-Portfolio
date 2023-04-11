@@ -1,5 +1,5 @@
 {
-  "homepage": "https://higgo36.github.io/React-Pro-Portfolio",
+  "homepage": "https://higgo36.github.io/React-Pro-Portfolio/",
   "name": "higsdevfolio",
   "version": "0.1.0",
   "private": true,
@@ -23,8 +23,8 @@
   },
   "scripts": {
     "predeploy": "npm run build",
-    "start": "node fetch.js && react-scripts start",
     "build": "node fetch.js && react-scripts build",
+    "start": "node fetch.js && react-scripts start",
     "deploy": "gh-pages -d build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
