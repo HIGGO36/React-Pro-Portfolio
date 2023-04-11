@@ -75,13 +75,24 @@ if (USE_GITHUB_DATA === "true") {
       throw new Error(ERR.requestFailed);
     }
 
-    res.on("data", d => {
+    res.on("data", (d) => {
       data += d;
     });
     res.on("end", () => {
-      fs.writeFile("./public/profile.json", data, function (err) {
+      fs.writeFile("./public/profile.json", data, (err) => {
         if (err) return console.log(err);
         console.log("saved file to public/profile.json");
+
+        // Create build directory if it doesn't exist
+        if (!fs.existsSync("./build")) {
+          fs.mkdirSync("./build");
+        }
+
+        // Copy profile.json to build directory
+        fs.writeFile("./build/profile.json", data, (err) => {
+          if (err) return console.log(err);
+          console.log("saved file to build/profile.json");
+        });
       });
     });
   });
