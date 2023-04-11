@@ -49,15 +49,19 @@ const socialMediaLinks = {
 
 const skillsSection = {
   title: "My Developer Skills",
-  subTitle: "- My past professional work has been primarly as a Front End developer, with some of my core abilities listed below.",
+  subTitle:
+    "- My past professional work has been primarly as a Front End developer, with some of my core abilities listed below.",
   skills: [
     emoji(
-      "🌞 I have a wide range of abilities with designing and developing web sites, interactice components and other types of assets."),
-      
-      emoji("🌞 I focus on using a mobile-first approach while keeping an eye on accessiblity and performance to deliver top notch user experiences."
+      "🌞 I have a wide range of abilities with designing and developing web sites, interactice components and other types of assets."
     ),
-    emoji("🌞 Currently learning more about Progressive Web Applications ( PWA ). Web Services and the Integration of third party services such as AWS.")
 
+    emoji(
+      "🌞 I focus on using a mobile-first approach while keeping an eye on accessiblity and performance to deliver top notch user experiences."
+    ),
+    emoji(
+      "🌞 Currently learning more about Progressive Web Applications ( PWA ). Web Services and the Integration of third party services such as AWS."
+    )
   ],
 
   /* Make Sure to include correct Font Awesome Classname to view your icon
@@ -127,8 +131,7 @@ https://fontawesome.com/icons?d=gallery */
     {
       skillName: "codepen",
       fontAwesomeClassname: "fab fa-codepen"
-    },
-
+    }
   ],
   display: true // Set false to hide this section, defaults to true
 };
@@ -144,10 +147,7 @@ const educationInfo = {
       subHeader: "Master of Science in Computer Information Systems",
       duration: "January 2020 - Dec 2023 (expected graduation time)",
       desc: "Completed 9 out of the 10 required program courses, with the capstone remaining.",
-      descBullets: [
-        "current GPA 3.2",
-        "Courses Completed: "
-      ]
+      descBullets: ["current GPA 3.2", "Courses Completed: "]
     },
     {
       schoolName: "Florida Institute of Technology",
@@ -155,10 +155,7 @@ const educationInfo = {
       subHeader: "Bachelor of Science in Computer Information Systems",
       duration: "Jan 2014 - Dec 2016",
       desc: "Attended the schools for computer programming, engineering and computer science while completeing all the courses from this degree program.",
-      descBullets: [
-        "GPA 3.3",
-      "Courses Completed: "
-      ]
+      descBullets: ["GPA 3.3", "Courses Completed: "]
     }
   ]
 };
@@ -210,9 +207,9 @@ const workExperiences = {
       descBullets: [
         "Gained advanced web 3.0 technical and overall ecosystems knowledge",
         "Created a business plan, short-term project goals that we managed using agile scrum methodology.",
-        "Hired an international contracted employee to help with blockchain smart contracts.", 
-        "Worked with our team to plan, design and develop a beta version of our nft marketplace project."   
-       ]
+        "Hired an international contracted employee to help with blockchain smart contracts.",
+        "Worked with our team to plan, design and develop a beta version of our nft marketplace project."
+      ]
     },
     {
       role: "User-Interface Developer",
@@ -223,11 +220,11 @@ const workExperiences = {
       descBullets: [
         "Primarily used tools like: Github, Npm, Yarn, Travis CI, Gatsby, Webpack4",
         "Set up an intermediate-level Webpack environment for a medium-scale web application writing mostly in JSON.",
-        "Configured custom loaders for handling CSS and image assets.", 
-        "Overcame challenges with integrating Webpack into the project’s testing framework, asynchronous loading and compatibility issues with multiple web browsers.",   
+        "Configured custom loaders for handling CSS and image assets.",
+        "Overcame challenges with integrating Webpack into the project’s testing framework, asynchronous loading and compatibility issues with multiple web browsers.",
         "Wrote “Build Scripts” in some of their package.json files used in the CBP Theme application that help with automating tasks like compiling source code, bundling files, and optimizing assets for deployment.",
         "Resulted in about a 50% reduction in build times and a more efficient overall codebase."
-       ]
+      ]
     },
     {
       role: "Web Developer",
@@ -238,9 +235,9 @@ const workExperiences = {
       descBullets: [
         "Overhauled the website’s user interface by creating from scratch new global web elements such as navigation, layout, and interactive web forms.",
         "Built a new and intuitive navigation system that streamlined user journeys and improved engagement metrics by over 100%.",
-        "Designed and developed a responsive mobile friendly layout that adapts seamlessly to different screen sizes, ensuring a consistent user experience across all devices.", 
+        "Designed and developed a responsive mobile friendly layout that adapts seamlessly to different screen sizes, ensuring a consistent user experience across all devices.",
         "Implemented interactive web forms to enhance user engagement, enabling visitors to easily submit inquiries, feedback, open and close account requests, and other types of requests through the website."
-       ]
+      ]
     },
     {
       role: "Application Systems Developer II & Certified DHS 508 Trusted Tester (TT)",
@@ -251,9 +248,9 @@ const workExperiences = {
       descBullets: [
         "Designed, developed, rapidly prototyped, tested and deployed for production a new global user-interface web elements for site navigation.",
         "Solved a high priority U.S. Government 508 Web Accessibility site minimum testing score requirement across more than 20,000 pages by primarly leveraging Javascript and jQuery.",
-        "Was first employee in history of this company to successfully earn the '508 Trusted Tester Certification for Software and Web Applications'.", 
-        "Worked with our team to plan, design and develop a beta version of our nft marketplace project." 
-       ]
+        "Was first employee in history of this company to successfully earn the '508 Trusted Tester Certification for Software and Web Applications'.",
+        "Worked with our team to plan, design and develop a beta version of our nft marketplace project."
+      ]
     }
   ]
 };
@@ -271,16 +268,17 @@ const openSource = {
 
 const achievementSection = {
   title: emoji("Certifications 📜"),
-  subtitle:
-    "for Web Development",
+  subtitle: "for Web Development",
 
   achievementsCards: [
     {
-      title: "Section 508 Trusted Tester Certification for Software and Web Applications",
+      title:
+        "Section 508 Trusted Tester Certification for Software and Web Applications",
       subtitle:
         "I took courses and final TT exam through the OAST program provided by the Department of Homeland Security.",
       image: require("./assets/images/OAST-TT-Logo.jpg"),
-      imageAlt: "508 Trusted Tester Certification v3 for Web & Applications from the DHS",
+      imageAlt:
+        "508 Trusted Tester Certification v3 for Web & Applications from the DHS",
       footerLink: [
         {
           name: "Certification",
@@ -296,14 +294,14 @@ const achievementSection = {
         }
       ]
     }
-
   ],
   display: true // Set false to hide this section, defaults to true
 };
 
 const contactInfo = {
   title: emoji("Contact Me ☎️"),
-  subtitle: "Discuss a project or just want to say hi? My Inbox is open for all.",
+  subtitle:
+    "Discuss a project or just want to say hi? My Inbox is open for all.",
   number: "",
   email_address: "jwebdev99@protonmail.com"
 };

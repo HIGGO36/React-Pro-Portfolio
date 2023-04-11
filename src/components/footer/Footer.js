@@ -13,11 +13,9 @@ export default function Footer() {
           {emoji("Made from pure 😊 happiness and passion for web development")}
         </p>
         <p className={isDark ? "dark-mode footer-text" : "footer-text"}>
-          See my original {" "}
-          <a href="https://johndhiggins.com/">
-          professional portfolio website
-          </a>
-          {" "} using vanilla JS
+          See my original{" "}
+          <a href="https://johndhiggins.com/">professional portfolio website</a>{" "}
+          using vanilla JS
         </p>
       </div>
     </Fade>

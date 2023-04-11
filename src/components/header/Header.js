@@ -40,7 +40,7 @@ function Header() {
               <a href="#skills">Skills</a>
             </li>
           )}
-             <li>
+          <li>
             <a href="#education">Education</a>
           </li>
           {viewExperience && (
@@ -58,7 +58,7 @@ function Header() {
               <a href="#achievements">Certifications</a>
             </li>
           )}
-      
+
           <li>
             <a href="#contact">Contact Me</a>
           </li>
