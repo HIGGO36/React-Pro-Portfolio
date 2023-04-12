@@ -16,7 +16,7 @@ export default function Profile() {
   useEffect(() => {
     if (openSource.showGithubProfile === "true") {
       const getProfileData = () => {
-        fetch("/profile.json")
+        fetch("https://higgo36.github.io/React-Pro-Portfolio/profile.json")
           .then(result => {
             if (result.ok) {
               return result.json();
