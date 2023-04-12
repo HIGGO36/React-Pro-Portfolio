@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/React-Pro-Portfolio/static/css/main.054e6606.css",
-    "main.js": "/React-Pro-Portfolio/static/js/main.cc08516f.js",
+    "main.js": "/React-Pro-Portfolio/static/js/main.dea441c2.js",
     "static/css/64.bba8fa55.chunk.css": "/React-Pro-Portfolio/static/css/64.bba8fa55.chunk.css",
     "static/js/64.e09f2851.chunk.js": "/React-Pro-Portfolio/static/js/64.e09f2851.chunk.js",
     "static/css/769.b3cbb36b.chunk.css": "/React-Pro-Portfolio/static/css/769.b3cbb36b.chunk.css",
@@ -9,7 +9,7 @@
     "static/media/FIT-seal-Logo.png": "/React-Pro-Portfolio/static/media/FIT-seal-Logo.43f1eb65c90a0f99dc0d.png",
     "static/media/Montserrat-Regular.ttf": "/React-Pro-Portfolio/static/media/Montserrat-Regular.3cd786652b8a2e9d41f2.ttf",
     "static/media/Agustina.woff": "/React-Pro-Portfolio/static/media/Agustina.eb0c59dda4cc308cba96.woff",
-    "static/media/nftelite-tradables-logo-yellow.jpeg": "/React-Pro-Portfolio/static/media/nftelite-tradables-logo-yellow.daa449653d83f78d38b7.jpeg",
+    "static/media/nftelite-tradables-logo-yellow.jpeg": "/React-Pro-Portfolio/static/media/nftelite-tradables-logo-yellow.ca9d92466357c5bb75a5.jpeg",
     "static/media/OAST-TT-Logo.jpg": "/React-Pro-Portfolio/static/media/OAST-TT-Logo.8ab7529f5f2b122f0b4d.jpg",
     "static/media/manOnTable.svg": "/React-Pro-Portfolio/static/media/manOnTable.8f117eb207e57ed8f89d67d595aceb45.svg",
     "static/media/contactMailDark.svg": "/React-Pro-Portfolio/static/media/contactMailDark.1db650d351729a0f17b4e3104e6a7b7a.svg",
@@ -18,7 +18,7 @@
     "static/media/skill.svg": "/React-Pro-Portfolio/static/media/skill.35a147662ab0a1d15e579690446e0258.svg",
     "index.html": "/React-Pro-Portfolio/index.html",
     "main.054e6606.css.map": "/React-Pro-Portfolio/static/css/main.054e6606.css.map",
-    "main.cc08516f.js.map": "/React-Pro-Portfolio/static/js/main.cc08516f.js.map",
+    "main.dea441c2.js.map": "/React-Pro-Portfolio/static/js/main.dea441c2.js.map",
     "64.bba8fa55.chunk.css.map": "/React-Pro-Portfolio/static/css/64.bba8fa55.chunk.css.map",
     "64.e09f2851.chunk.js.map": "/React-Pro-Portfolio/static/js/64.e09f2851.chunk.js.map",
     "769.b3cbb36b.chunk.css.map": "/React-Pro-Portfolio/static/css/769.b3cbb36b.chunk.css.map",
@@ -26,6 +26,6 @@
   },
   "entrypoints": [
     "static/css/main.054e6606.css",
-    "static/js/main.cc08516f.js"
+    "static/js/main.dea441c2.js"
   ]
 }
