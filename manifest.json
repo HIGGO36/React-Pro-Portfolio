@@ -1,6 +1,6 @@
 {
-  "short_name": "John Higgins Portfolio",
-  "name": "John's Web Developer Portfolio App",
+  "short_name": "John's Portfolio",
+  "name": "John's React Web App Developer Portfolio",
   "icons": [
     {
       "src": "/favicon.ico",
