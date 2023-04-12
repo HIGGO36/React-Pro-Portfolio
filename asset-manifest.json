@@ -1,6 +1,6 @@
 {
   "files": {
-    "main.css": "/React-Pro-Portfolio/static/css/main.85481615.css",
+    "main.css": "/React-Pro-Portfolio/static/css/main.2127735f.css",
     "main.js": "/React-Pro-Portfolio/static/js/main.50829235.js",
     "static/css/64.bba8fa55.chunk.css": "/React-Pro-Portfolio/static/css/64.bba8fa55.chunk.css",
     "static/js/64.e09f2851.chunk.js": "/React-Pro-Portfolio/static/js/64.e09f2851.chunk.js",
@@ -17,7 +17,7 @@
     "static/media/Unisys-U-Logo.png": "/React-Pro-Portfolio/static/media/Unisys-U-Logo.8a6ce95d9fa607cd7698.png",
     "static/media/skill.svg": "/React-Pro-Portfolio/static/media/skill.35a147662ab0a1d15e579690446e0258.svg",
     "index.html": "/React-Pro-Portfolio/index.html",
-    "main.85481615.css.map": "/React-Pro-Portfolio/static/css/main.85481615.css.map",
+    "main.2127735f.css.map": "/React-Pro-Portfolio/static/css/main.2127735f.css.map",
     "main.50829235.js.map": "/React-Pro-Portfolio/static/js/main.50829235.js.map",
     "64.bba8fa55.chunk.css.map": "/React-Pro-Portfolio/static/css/64.bba8fa55.chunk.css.map",
     "64.e09f2851.chunk.js.map": "/React-Pro-Portfolio/static/js/64.e09f2851.chunk.js.map",
@@ -25,7 +25,7 @@
     "769.f83313b9.chunk.js.map": "/React-Pro-Portfolio/static/js/769.f83313b9.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.85481615.css",
+    "static/css/main.2127735f.css",
     "static/js/main.50829235.js"
   ]
 }
