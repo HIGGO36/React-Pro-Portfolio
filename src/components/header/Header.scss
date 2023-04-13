@@ -40,7 +40,7 @@
 
 .header li a {
   display: block;
-  padding: 15px 20px;
+  padding: 6px;
   color: $textColor;
   text-decoration: none;
 }
@@ -164,6 +164,7 @@
 @media (min-width: 48em) {
   .header li {
     float: left;
+    padding-left: 2%;
   }
   .header {
     display: block;
@@ -192,6 +193,9 @@
 
 @media (max-width: 380px) {
 
+  .header {
+    padding: 4px;
+  }
   .header .logo {
     font-size: 1em;
   }
