@@ -35,6 +35,7 @@ const greeting = {
 const socialMediaLinks = {
   github: "https://github.com/HIGGO36",
   linkedin: "https://www.linkedin.com/in/j-d-h/",
+  protonmail: "mailto:jwebdev99@protonmail.com",
   // gmail: "saadpasta70@gmail.com",
   // gitlab: "https://gitlab.com/saadpasta",
   // facebook: "https://www.facebook.com/saad.pasta7",
