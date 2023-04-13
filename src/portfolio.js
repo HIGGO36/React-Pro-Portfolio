@@ -117,10 +117,6 @@ https://fontawesome.com/icons?d=gallery */
       fontAwesomeClassname: "fas fa-terminal"
     },
     {
-      skillName: "vscode",
-      fontAwesomeClassname: "fab fa-vscode"
-    },
-    {
       skillName: "chrome",
       fontAwesomeClassname: "fab fa-chrome"
     },
@@ -154,7 +150,7 @@ const educationInfo = {
       logo: require("./assets/images/FIT-seal-Logo.png"),
       subHeader: "Bachelor of Science in Computer Information Systems",
       duration: "Jan 2014 - Dec 2016",
-      desc: "Attended the schools for computer programming, engineering and computer science while completeing all the courses from this degree program.",
+      desc: "Attended the schools for computer programming, engineering and computer science while completing all the courses from this degree program.",
       descBullets: ["GPA 3.3", "Courses Completed: "]
     }
   ]

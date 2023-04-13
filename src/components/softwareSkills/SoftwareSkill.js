@@ -1,10 +1,13 @@
-import React from "react";
+import React, { useContext } from "react";
 import "./SoftwareSkill.scss";
-import {skillsSection} from "../../portfolio";
+import { skillsSection } from "../../portfolio";
+import StyleContext from "../../contexts/StyleContext";
 
 export default function SoftwareSkill() {
+  const { isDark } = useContext(StyleContext);
+
   return (
-    <div>
+    <div className={isDark ? "dark-mode" : null}>
       <div className="software-skills-main-div">
         <ul className="dev-icons">
           {skillsSection.softwareSkills.map((skills, i) => {
@@ -15,7 +18,15 @@ export default function SoftwareSkill() {
                 name={skills.skillName}
               >
                 <i className={skills.fontAwesomeClassname}></i>
-                <p>{skills.skillName}</p>
+                <p
+                  className={
+                    isDark
+                      ? "dark-mode software-skill-name"
+                      : "software-skill-name"
+                  }
+                >
+                  {skills.skillName}
+                </p>
               </li>
             );
           })}
