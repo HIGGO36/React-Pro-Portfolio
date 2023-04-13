@@ -1,11 +1,11 @@
 {
   "files": {
     "main.css": "/React-Pro-Portfolio/static/css/main.68003993.css",
-    "main.js": "/React-Pro-Portfolio/static/js/main.c8ac7583.js",
+    "main.js": "/React-Pro-Portfolio/static/js/main.3ba951ab.js",
     "static/css/64.bba8fa55.chunk.css": "/React-Pro-Portfolio/static/css/64.bba8fa55.chunk.css",
     "static/js/64.e09f2851.chunk.js": "/React-Pro-Portfolio/static/js/64.e09f2851.chunk.js",
     "static/css/769.b3cbb36b.chunk.css": "/React-Pro-Portfolio/static/css/769.b3cbb36b.chunk.css",
-    "static/js/769.f83313b9.chunk.js": "/React-Pro-Portfolio/static/js/769.f83313b9.chunk.js",
+    "static/js/769.7434306a.chunk.js": "/React-Pro-Portfolio/static/js/769.7434306a.chunk.js",
     "static/media/FIT-seal-Logo.png": "/React-Pro-Portfolio/static/media/FIT-seal-Logo.43f1eb65c90a0f99dc0d.png",
     "static/media/Montserrat-Regular.ttf": "/React-Pro-Portfolio/static/media/Montserrat-Regular.3cd786652b8a2e9d41f2.ttf",
     "static/media/Agustina.woff": "/React-Pro-Portfolio/static/media/Agustina.eb0c59dda4cc308cba96.woff",
@@ -18,14 +18,14 @@
     "static/media/skill.svg": "/React-Pro-Portfolio/static/media/skill.35a147662ab0a1d15e579690446e0258.svg",
     "index.html": "/React-Pro-Portfolio/index.html",
     "main.68003993.css.map": "/React-Pro-Portfolio/static/css/main.68003993.css.map",
-    "main.c8ac7583.js.map": "/React-Pro-Portfolio/static/js/main.c8ac7583.js.map",
+    "main.3ba951ab.js.map": "/React-Pro-Portfolio/static/js/main.3ba951ab.js.map",
     "64.bba8fa55.chunk.css.map": "/React-Pro-Portfolio/static/css/64.bba8fa55.chunk.css.map",
     "64.e09f2851.chunk.js.map": "/React-Pro-Portfolio/static/js/64.e09f2851.chunk.js.map",
     "769.b3cbb36b.chunk.css.map": "/React-Pro-Portfolio/static/css/769.b3cbb36b.chunk.css.map",
-    "769.f83313b9.chunk.js.map": "/React-Pro-Portfolio/static/js/769.f83313b9.chunk.js.map"
+    "769.7434306a.chunk.js.map": "/React-Pro-Portfolio/static/js/769.7434306a.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.68003993.css",
-    "static/js/main.c8ac7583.js"
+    "static/js/main.3ba951ab.js"
   ]
 }
