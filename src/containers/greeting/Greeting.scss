@@ -112,8 +112,12 @@
 
 }
 
-@media (max-width: 320px) {
+@media (max-width: 350px) {
   .main {
     width: auto;
+  }
+
+  .greet-main {
+    margin-top: 6rem;
   }
 }
