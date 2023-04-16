@@ -62,7 +62,7 @@ if (user) {
           Welcome, <span className="firebase-email">{user.email}</span>
         </h1>
         <button className="glowing-btn" onClick={() => firebase.auth().signOut()}>
-        <span class='glowing-txt'>SIGN<span class='faulty-letter'>OUT</span></span>
+        <span className='glowing-txt'>SIGN<span className='faulty-letter'>OUT</span></span>
         </button>
       </div>
       <Main />
