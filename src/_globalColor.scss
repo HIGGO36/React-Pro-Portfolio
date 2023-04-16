@@ -7,6 +7,10 @@ $buttonColor: #55198b;
 $buttonHover: #8c43ce;
 $topButtonHover: #000;
 
+// user-authentication button colors
+$buttonAuth: #99ACD9;
+$buttonAuthColor: #0E204A;
+
 // text colors light theme
 $titleColor: #000000;
 $textColor: #000000;
@@ -14,9 +18,13 @@ $subTitle: #1F2741;
 $cardSubtitle: #233A82;
 $talkCardSubTitle: #1942C3;
 $blogCardTitleColor: #262626;
+$spaceWhite: #E2EBEF;
 
 // text color dark theme
 $textColorDark: #ffffff;
+
+// text color user authentication
+$userAuthDefaultColor: #032310;
 
 // toggle switch colors
 $toggleCheck: #2196f3;
@@ -34,6 +42,7 @@ $githubProfileCardBorder: #6c63ff;
 $lightBackground1: #fff;
 $lightBackground2: rgb(255, 255, 255);
 $lightBackground3: #f5f2f4;
+$userAuth: #113DA6;
 $blogCardContainerColor: #586069;
 // dark background colors
 $darkBackground: #171c28;
@@ -46,6 +55,13 @@ $lightBoxShadowDarker: rgba(0, 0, 0, 0.3);
 // dark theme box shadows
 $darkBoxShadow: #d9dbdf;
 $darkBoxShadow2: #ffffff;
+
+// user authentication default background
+$userAuthBackground: #5DDF90;
+
+// user Notices
+$userNoticeBackground: #B9F3D1;
+$userNoticeColor: #A02609;
 
 // linear gradients
 $experienceCardBlurredDivLG: linear-gradient(
@@ -67,6 +83,8 @@ $achievementCertificateCardHoverDark: rgba(255, 255, 255, 0.2);
 $blogCardHoverSmallColor: rgba(255, 255, 255, 0.8);
 $headerHoverBG: #f4f4f4;
 $contactDetailHoverTS: #b5b5b5;
+$buttonAuthHoverBG: #E2E6EF;
+$buttonAuthHoverColor: #1D2A46;
 
 // misc backgrounds
 $progressBarSpanBG: #aaa5ff;
