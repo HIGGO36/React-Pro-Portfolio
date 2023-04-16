@@ -75,8 +75,10 @@ return (
     <div className="space-background-container">
         <SpaceBackground />
       </div>
-    <h1 className="firebase-user-auth-h1">Welcome to my Web Developer React web app portfolio</h1>
-    <p className="user-notice">Login my site using email address.</p>
+    <h1 className="firebase-user-auth-h1">John D Higgins 
+    <br> Web Developer </br> React Web App Portfolio</h1>
+
+    <p className="user-notice">Login using email address to access my portfolio.</p>
     <StyledFirebaseAuth uiConfig={uiConfig} firebaseAuth={firebase.auth()} />
     </div>
 );
