@@ -31,7 +31,7 @@ if (!firebase.apps.length) {
 
 const uiConfig = {
   signInFlow: 'popup',
-  signInSuccessUrl: '/',
+  signInSuccessUrl: 'https://higgo36.github.io/React-Pro-Portfolio/',
   signInOptions: [
     firebase.auth.GoogleAuthProvider.PROVIDER_ID,
     firebase.auth.EmailAuthProvider.PROVIDER_ID,
