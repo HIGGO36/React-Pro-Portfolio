@@ -11,76 +11,79 @@ import "./App.scss";
 function App() {
 
   // Your web app's Firebase configuration
-// For Firebase JS SDK v7.20.0 and later, measurementId is optional
-const firebaseConfig = {
-  // paste your Firebase configuration object here
-  apiKey: "AIzaSyBBFtMgyPUohXOIc2oTLiFJl8JYRMr3wI4",
-  authDomain: "react-pro-portfolio.firebaseapp.com",
-  projectId: "react-pro-portfolio",
-  storageBucket: "react-pro-portfolio.appspot.com",
-  messagingSenderId: "130439653552",
-  appId: "1:130439653552:web:ccc83476e91ac3d1c77375",
-  measurementId: "G-ZG5PVDK9KX"
-}; 
+  // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+  const firebaseConfig = {
+    // paste your Firebase configuration object here
+    apiKey: process.env.REACT_APP_FIREBASE_API_KEY,
+    authDomain: process.env.REACT_APP_FIREBASE_AUTH_DOMAIN,
+    projectId: process.env.REACT_APP_FIREBASE_PROJECT_ID,
+    storageBucket: process.env.REACT_APP_FIREBASE_STORAGE_BUCKET,
+    messagingSenderId: process.env.REACT_APP_FIREBASE_MESSAGING_SENDER_ID,
+    appId: process.env.REACT_APP_FIREBASE_APP_ID,
+    measurementId: process.env.REACT_APP_FIREBASE_MEASUREMENT_ID
+  };
 
-if (!firebase.apps.length) {
-  firebase.initializeApp(firebaseConfig);
-} else {
-  firebase.app();
-}
+  // Initialize Firebase
+  if (!firebase.apps.length) {
+    firebase.initializeApp(firebaseConfig);
+  }
 
-const uiConfig = {
-  signInFlow: 'popup',
-  signInSuccessUrl: 'https://higgo36.github.io/React-Pro-Portfolio/',
-  signInOptions: [
-    firebase.auth.GoogleAuthProvider.PROVIDER_ID,
-    firebase.auth.EmailAuthProvider.PROVIDER_ID,
-  ],
-};
+  const uiConfig = {
+    signInFlow: 'popup',
+    signInSuccessUrl: 'https://higgo36.github.io/React-Pro-Portfolio/',
+    signInOptions: [
+      firebase.auth.GoogleAuthProvider.PROVIDER_ID,
+      firebase.auth.EmailAuthProvider.PROVIDER_ID,
+    ],
+  };
 
-const [loading, setLoading] = useState(true);
-const [user, setUser] = useState(null);
+  const [loading, setLoading] = useState(true);
+  const [user, setUser] = useState(null);
+  const [token, setToken] = useState(null);
 
-useEffect(() => {
-  const unsubscribe = firebase.auth().onAuthStateChanged((user) => {
-    setUser(user);
-    setLoading(false);
-  });
+  useEffect(() => {
+    const unsubscribe = firebase.auth().onAuthStateChanged(async (user) => {
+      if (user) {
+        const token = await user.getIdToken();
+        setToken(token);
+      }
+      setUser(user);
+      setLoading(false);
+    });
 
-  return () => unsubscribe();
-}, []);
+    return () => unsubscribe();
+  }, []);
 
-if (loading) {
-  return null;
-}
+  if (loading) {
+    return null;
+  }
 
-if (user) {
-  return (
-    <div>
-      <div className="firebase-user">
-        <h1 className="successful-auth-welcome">
-          Welcome, <span className="firebase-email">{user.email}</span>
-        </h1>
-        <button className="glowing-btn" onClick={() => firebase.auth().signOut()}>
-        <span className='glowing-txt'>SIGN<span className='faulty-letter'>OUT</span></span>
-        </button>
+  if (user) {
+    return (
+      <div>
+        <div className="firebase-user">
+          <h1 className="successful-auth-welcome">
+            Welcome, <span className="firebase-email">{user.email}</span>
+          </h1>
+          <button className="glowing-btn" onClick={() => firebase.auth().signOut()}>
+            <span className='glowing-txt'>SIGN<span className='faulty-letter'>OUT</span></span>
+          </button>
+        </div>
+        <Main user={user} token={token} />
       </div>
-      <Main />
-    </div>
-  );
-}
+    );
+  }
 
-return (
-  <div className="firebase-user-auth">
-    <div className="space-background-container">
+  return (
+    <div className="firebase-user-auth">
+      <div className="space-background-container">
         <SpaceBackground />
       </div>
-    <h1 className="firebase-user-auth-h1">Welcome to - John D Higgins - Web Developer React Web App Portfolio</h1>
-
-    <p className="user-notice">Login using email address to access my portfolio.</p>
-    <StyledFirebaseAuth uiConfig={uiConfig} firebaseAuth={firebase.auth()} />
+      <h1 className="firebase-user-auth-h1">Welcome to - John D Higgins - Web Developer React Web App Portfolio</h1>
+      <p className="user-notice">Login using email address to access my portfolio.</p>
+      <StyledFirebaseAuth uiConfig={uiConfig} firebaseAuth={firebase.auth()} />
     </div>
-);
+  );
 }
 
 export default App;
