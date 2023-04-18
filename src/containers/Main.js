@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from "react";
+import React, { useEffect, useState } from "react";
 import Header from "../components/header/Header";
 import Greeting from "./greeting/Greeting";
 import Skills from "./skills/Skills";
@@ -11,16 +11,21 @@ import Education from "./education/Education";
 import ScrollToTopButton from "./topbutton/Top";
 import Profile from "./profile/Profile";
 import SplashScreen from "./splashScreen/SplashScreen";
-import {splashScreen} from "../portfolio";
-import {StyleProvider} from "../contexts/StyleContext";
-import {useLocalStorage} from "../hooks/useLocalStorage";
-import "./Main.scss";
+import { splashScreen } from "../portfolio";
+import { StyleProvider } from "../contexts/StyleContext";
+import { useLocalStorage } from "../hooks/useLocalStorage";
+import './Main.scss';
 
-const Main = ({ user }) => {
+const Main = ({ user, token, onWorkExperienceClick }) => {
   const darkPref = window.matchMedia("(prefers-color-scheme: dark)");
   const [isDark, setIsDark] = useLocalStorage("isDark", darkPref.matches);
-  const [isShowingSplashAnimation, setIsShowingSplashAnimation] =
-    useState(true);
+  const [isShowingSplashAnimation, setIsShowingSplashAnimation] = useState(true);
+  const [showWorkExperience, setShowWorkExperience] = useState(false);
+
+  useEffect(() => {
+    const unsubscribe = token && user ? setShowWorkExperience(true) : () => {};
+    return unsubscribe;
+  }, [token, user]);
 
   useEffect(() => {
     if (splashScreen.enabled) {
@@ -38,6 +43,18 @@ const Main = ({ user }) => {
     setIsDark(!isDark);
   };
 
+  const handleWorkExperienceClick = () => {
+    if (token && user) {
+      setShowWorkExperience(true);
+    } else {
+      onWorkExperienceClick();
+    }
+  };
+
+  const onSignInSuccess = () => {
+    setShowWorkExperience(true);
+  };
+
   return (
     <div className={isDark ? "dark-mode" : null}>
       <StyleProvider value={{ isDark: isDark, changeTheme: changeTheme }}>
@@ -45,12 +62,16 @@ const Main = ({ user }) => {
           <SplashScreen />
         ) : (
           <>
-            <Header user={user} />
+            <Header user={user} handleWorkExperienceClick={handleWorkExperienceClick} />
             <Greeting user={user} />
             <Skills user={user} />
             <StackProgress user={user} />
             <Education user={user} />
-            <WorkExperience user={user} />
+            {showWorkExperience && user ? (
+              <WorkExperience user={user} onSignInSuccess={onSignInSuccess} />
+            ) : (
+              <div className="user-notice">Please sign in to see work experience.</div>
+            )}
             <Projects user={user} />
             <Achievement user={user} />
             <Profile user={user} />
