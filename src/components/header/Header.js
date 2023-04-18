@@ -5,7 +5,7 @@ import ToggleSwitch from "../ToggleSwitch/ToggleSwitch";
 import StyleContext from "../../contexts/StyleContext";
 import { greeting, workExperiences, skillsSection, openSource, achievementSection } from "../../portfolio";
 
-function Header({ user, handleWorkExperienceClick }) {
+function Header({ handleWorkExperienceClick }) {
   const { isDark } = useContext(StyleContext);
   const viewExperience = workExperiences.display;
   const viewOpenSource = openSource.display;
