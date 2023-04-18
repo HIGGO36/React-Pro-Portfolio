@@ -16,8 +16,7 @@ import {StyleProvider} from "../contexts/StyleContext";
 import {useLocalStorage} from "../hooks/useLocalStorage";
 import "./Main.scss";
 
-const Main = () => {
-  
+const Main = ({ user }) => {
   const darkPref = window.matchMedia("(prefers-color-scheme: dark)");
   const [isDark, setIsDark] = useLocalStorage("isDark", darkPref.matches);
   const [isShowingSplashAnimation, setIsShowingSplashAnimation] =
@@ -41,21 +40,21 @@ const Main = () => {
 
   return (
     <div className={isDark ? "dark-mode" : null}>
-      <StyleProvider value={{isDark: isDark, changeTheme: changeTheme}}>
+      <StyleProvider value={{ isDark: isDark, changeTheme: changeTheme }}>
         {isShowingSplashAnimation && splashScreen.enabled ? (
           <SplashScreen />
         ) : (
           <>
-            <Header />
-            <Greeting />
-            <Skills />
-            <StackProgress />
-            <Education />
-            <WorkExperience />
-            <Projects />
-            <Achievement />
-            <Profile />
-            <Footer />
+            <Header user={user} />
+            <Greeting user={user} />
+            <Skills user={user} />
+            <StackProgress user={user} />
+            <Education user={user} />
+            <WorkExperience user={user} />
+            <Projects user={user} />
+            <Achievement user={user} />
+            <Profile user={user} />
+            <Footer user={user} />
             <ScrollToTopButton />
           </>
         )}
