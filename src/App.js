@@ -1,4 +1,4 @@
-import React, { useContext, useState } from 'react';
+import React, { useContext, useState, useEffect } from 'react';
 import 'firebase/compat/auth';
 import { SpaceBackground } from './components/SpaceBackground/SpaceBackground';
 import StyledFirebaseAuth from 'react-firebaseui/StyledFirebaseAuth';
@@ -18,6 +18,15 @@ function AppContent() {
       myFirebase.auth.EmailAuthProvider.PROVIDER_ID,
     ],
   };
+
+  useEffect(() => {
+    // Listen for messages from the service worker
+    navigator.serviceWorker.addEventListener("message", (event) => {
+      if (event.data.type === "CACHE_SUCCESS") {
+        console.log("All images cached successfully!");
+      }
+    });
+  }, []);
 
   return (
     <div>

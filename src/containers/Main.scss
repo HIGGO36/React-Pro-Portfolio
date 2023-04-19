@@ -74,13 +74,29 @@ body {
   align-items: center;
   justify-content: center;
   height: 100vh;
+  min-width: 280px;
   padding: 6% 25%;
   line-height: 1.5;
   color: $spaceWhite;
   text-align: center;
   overflow-wrap: break-word;
   hyphens: manual;
+}
 
+
+.firebaseui-container.mdl-card {
+ background: #C9E9EF;
+ align-items: center;
+ border-radius: 5px;
+
+}
+
+.firebaseui-textfield.mdl-textfield .firebaseui-input {
+font-size: 3vw;
+background: $lightBackground1;
+border: 3px solid #051E34 !important;
+padding: 4%;
+margin-left: 15%;
 }
 
 .space-background-container {
@@ -91,6 +107,19 @@ body {
   height: 100%;
   z-index: -1;
 }
+.mdl-textfield {
+  padding: 0 !important;
+}
+
+.mdl-textfield--floating-label.has-placeholder .mdl-textfield__label, .mdl-textfield--floating-label.is-dirty .mdl-textfield__label, .mdl-textfield--floating-label.is-focused .mdl-textfield__label {
+  top: 35% !important;
+  font-size: 3vw;
+
+}
+
+.mdl-textfield--floating-label.is-dirty .mdl-textfield__label, .mdl-textfield--floating-label.is-focused .mdl-textfield__label {
+  font-weight: 900;
+}
 
 .firebase-user-auth-h1 {
   font-size: 1.4rem;
@@ -98,7 +127,6 @@ body {
   text-align: center;
   color: $spaceWhite;
   font-weight: 800;
-
 }
 
 .firebaseui-list-item {
@@ -106,7 +134,6 @@ body {
 }
 
 .firebaseui-list-item:hover {
-
   opacity: 0.25;
 }
 

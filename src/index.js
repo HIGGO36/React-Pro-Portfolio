@@ -6,4 +6,8 @@ import * as serviceWorker from "./serviceWorker";
 
 ReactDOM.render(<App />, document.getElementById("root"));
 
-serviceWorker.register();
+if ("serviceWorker" in navigator) {
+    window.addEventListener("load", () => {
+      serviceWorker.register();
+    });
+  }
