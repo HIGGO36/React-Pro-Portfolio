@@ -14,7 +14,7 @@ import SplashScreen from "./splashScreen/SplashScreen";
 import { splashScreen } from "../portfolio";
 import { StyleProvider } from "../contexts/StyleContext";
 import { useLocalStorage } from "../hooks/useLocalStorage";
-import './Main.scss';
+import "./Main.scss";
 
 const Main = ({ user, token, onWorkExperienceClick }) => {
   const darkPref = window.matchMedia("(prefers-color-scheme: dark)");
@@ -23,21 +23,23 @@ const Main = ({ user, token, onWorkExperienceClick }) => {
   const [showWorkExperience, setShowWorkExperience] = useState(false);
 
   useEffect(() => {
-    const unsubscribe = token && user ? setShowWorkExperience(true) : () => {};
-    return unsubscribe;
-  }, [token, user]);
-
-  useEffect(() => {
     if (splashScreen.enabled) {
-      const splashTimer = setTimeout(
-        () => setIsShowingSplashAnimation(false),
-        splashScreen.duration
-      );
+      const splashTimer = setTimeout(() => {
+        setIsShowingSplashAnimation(false);
+      }, splashScreen.duration);
+
       return () => {
         clearTimeout(splashTimer);
       };
+    } else {
+      setIsShowingSplashAnimation(false);
     }
   }, []);
+
+  useEffect(() => {
+    const unsubscribe = token && user ? setShowWorkExperience(true) : () => {};
+    return unsubscribe;
+  }, [token, user]);
 
   const changeTheme = () => {
     setIsDark(!isDark);
@@ -64,18 +66,18 @@ const Main = ({ user, token, onWorkExperienceClick }) => {
           <>
             <Header user={user} handleWorkExperienceClick={handleWorkExperienceClick} />
             <Greeting user={user} />
-            <Skills user={user} />
-            <StackProgress user={user} />
-            <Education user={user} />
+            <Skills />
+            <StackProgress />
+            <Education />
             {showWorkExperience && user ? (
               <WorkExperience user={user} onSignInSuccess={onSignInSuccess} />
             ) : (
               <div className="user-notice">Please sign in to see work experience.</div>
             )}
-            <Projects user={user} />
-            <Achievement user={user} />
-            <Profile user={user} />
-            <Footer user={user} />
+            <Projects />
+            <Achievement />
+            <Profile />
+            <Footer />
             <ScrollToTopButton />
           </>
         )}

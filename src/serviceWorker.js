@@ -1,103 +1,56 @@
-const isLocalhost = Boolean(
-  window.location.hostname === "localhost" ||
-  window.location.hostname === "[::1]" ||
-  window.location.hostname.match(
-    /^127(?:\.(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)){3}$/
-  )
-);
+/* eslint-disable no-restricted-globals, array-callback-return */
 
-function registerValidSW(swUrl) {
-  navigator.serviceWorker
-    .register(swUrl)
-    .then((registration) => {
-      registration.onupdatefound = () => {
-        const installingWorker = registration.installing;
-        if (installingWorker == null) {
-          return;
+const CACHE_NAME = "MY-SITE-CACHE-V1";
+const URLS_TO_CACHE = ["/", "/index.html", "/offline.html"];
+
+self.addEventListener("install", (event) => {
+  event.waitUntil(
+    caches.open(CACHE_NAME).then((cache) => {
+      console.log("Opened cache");
+      return cache.addAll(URLS_TO_CACHE);
+    })
+  );
+});
+
+self.addEventListener("fetch", (event) => {
+  event.respondWith(
+    caches.match(event.request).then((response) => {
+      if (response) {
+        return response;
+      }
+
+      return fetch(event.request).then((response) => {
+        if (!response || response.status !== 200 || response.type !== "basic") {
+          return response;
         }
-        installingWorker.onstatechange = () => {
-          if (installingWorker.state === "installed") {
-            if (navigator.serviceWorker.controller) {
-              console.log(
-                "New content is available and will be used when all " +
-                  "tabs for this page are closed. See https://bit.ly/CRA-PWA."
-              );
 
-              // Send a message to the new service worker to cache all images
-              installingWorker.postMessage({ type: "CACHE_IMAGES" });
-            } else {
-              console.log("Content is cached for offline use.");
-            }
+        const responseToCache = response.clone();
+
+        caches.open(CACHE_NAME).then((cache) => {
+          cache.put(event.request, responseToCache);
+        });
+
+        return response;
+      }).catch(() => {
+        return caches.match('/offline.html');
+      });
+    })
+  );
+});
+
+self.addEventListener("activate", (event) => {
+  const cacheWhitelist = [CACHE_NAME];
+
+  event.waitUntil(
+    caches.keys().then((cacheNames) => {
+      return Promise.all(
+        cacheNames.map((cacheName) => {
+          if (cacheWhitelist.indexOf(cacheName) === -1) {
+            return caches.delete(cacheName);
           }
-        };
-      };
-    })
-    .catch((error) => {
-      console.error("Error during service worker registration:", error);
-    });
-}
-
-function checkValidServiceWorker(swUrl) {
-  fetch(swUrl)
-    .then((response) => {
-      const contentType = response.headers.get("content-type");
-      if (
-        response.status === 404 ||
-        (contentType != null && contentType.indexOf("javascript") === -1)
-      ) {
-        navigator.serviceWorker.ready.then((registration) => {
-          registration.unregister().then(() => {
-            window.location.reload();
-          });
-        });
-      } else {
-        registerValidSW(swUrl);
-      }
-    })
-    .catch(() => {
-      console.log(
-        "No internet connection found. App is running in offline mode."
+          return null;
+        })
       );
-    });
-}
-
-export function register() {
-  if (process.env.NODE_ENV === "production" && "serviceWorker" in navigator) {
-    const publicUrl = new URL(process.env.PUBLIC_URL, window.location.href);
-
-    if (publicUrl.origin !== window.location.origin) {
-      return;
-    }
-
-    window.addEventListener("load", () => {
-      const swUrl = `${process.env.PUBLIC_URL}/service-worker.js`;
-
-      if (isLocalhost) {
-        checkValidServiceWorker(swUrl);
-        navigator.serviceWorker.ready.then(() => {
-          console.log(
-            "This web app is being served cache-first by a service worker. " +
-              "To learn more, visit https://bit.ly/CRA-PWA"
-          );
-        });
-      } else {
-        registerValidSW(swUrl);
-      }
-    });
-  }
-}
-
-export function unregister() {
-  if ("serviceWorker" in navigator) {
-    navigator.serviceWorker.ready.then((registration) => {
-      registration.unregister();
-    });
-  }
-}
-
-// Listen for messages from the service worker
-navigator.serviceWorker.addEventListener("message", (event) => {
-  if (event.data.type === "CACHE_SUCCESS") {
-    console.log("All images cached successfully!");
-  }
+    })
+  );
 });

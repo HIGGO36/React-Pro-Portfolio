@@ -5,15 +5,15 @@ import emoji from "react-easy-emoji";
 import splashAnimation from "./assets/lottie/splashAnimation"; // Rename to your file name for custom animation
 
 // Splash Screen
-
 const splashScreen = {
-  enabled: true, // set false to disable splash screen
+  enabled: true,
   animation: splashAnimation,
-  duration: 2000 // Set animation duration as per your animation
+  duration: Infinity, // Set a high initial duration value
+  maxDuration: 5000, // Set a maximum duration value (in milliseconds)
 };
 
-// Summary And Greeting Section
 
+// Summary And Greeting Section
 const illustration = {
   animated: true // Set to false to use static SVG
 };
@@ -26,8 +26,11 @@ const greeting = {
   ),
   resumeLink:
     "https://docs.google.com/document/d/12f1ErIoy-OFDym7pqYxdqqjHHGd7LVArcMwYckSgrhA/edit?usp=sharing", // Set to empty to hide the button
-  displayGreeting: true // Set false to hide this section, defaults to true
+  displayGreeting: true, // Set false to hide this section, defaults to true
+  displayResume: true // Set false to hide the resume link, defaults to true
 };
+
+
 
 // Social Media Links
 

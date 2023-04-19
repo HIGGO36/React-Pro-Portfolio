@@ -1,32 +1,38 @@
-import React, { useContext, useState, useEffect } from 'react';
+import React, { useContext, useState } from 'react';
 import 'firebase/compat/auth';
-import { SpaceBackground } from './components/SpaceBackground/SpaceBackground';
 import StyledFirebaseAuth from 'react-firebaseui/StyledFirebaseAuth';
 import Main from './containers/Main';
-import { AuthProvider, AuthContext } from './contexts/AuthProvider/AuthProvider';
+import { AuthProvider, AuthContext, useUser, useToken, useFirebase } from './contexts/AuthProvider/AuthProvider';
 import './App.scss';
 
 function AppContent() {
-  const { loading, user, token, myFirebase } = useContext(AuthContext);
+  const { loading } = useContext(AuthContext);
+  const user = useUser();
+  const token = useToken();
+  const myFirebase = useFirebase();
   const [showUserAuth, setShowUserAuth] = useState(false);
 
+  // used as a configuration object for the StyledFirebaseAuth component from the react-firebaseui library.
   const uiConfig = {
-    signInFlow: 'popup',
+    signInFlow: 'redirect',
     signInSuccessUrl: window.location.href,
     signInOptions: [
       myFirebase.auth.GoogleAuthProvider.PROVIDER_ID,
       myFirebase.auth.EmailAuthProvider.PROVIDER_ID,
     ],
-  };
+    tosUrl: 'https://www.google.com/policies/terms/',
+    privacyPolicyUrl: 'https://www.google.com/policies/privacy/',
+  };  
 
-  useEffect(() => {
-    // Listen for messages from the service worker
-    navigator.serviceWorker.addEventListener("message", (event) => {
-      if (event.data.type === "CACHE_SUCCESS") {
-        console.log("All images cached successfully!");
-      }
-    });
-  }, []);
+  const handleSignOut = async () => {
+    try {
+      await myFirebase.auth().signOut();
+      // Redirect user to the homepage after signout
+      window.location.href = '/';
+    } catch (error) {
+      console.error(error);
+    }
+  };
 
   return (
     <div>
@@ -39,10 +45,7 @@ function AppContent() {
                   Access approved:{' '}
                   <span className="firebase-email">{user.email}</span>
                 </h1>
-                <button
-                  className="glowing-btn"
-                  onClick={() => myFirebase.auth().signOut()}
-                >
+                <button className="glowing-btn" onClick={handleSignOut}>
                   <span className="glowing-txt">
                     SIGN<span className="faulty-letter">OUT</span>
                   </span>
@@ -57,23 +60,15 @@ function AppContent() {
             </>
           ) : showUserAuth ? (
             <div className="firebase-user-auth">
-              <div className="space-background-container">
-                <SpaceBackground />
-              </div>
               <h1 className="firebase-user-auth-h1">Get Full Access :</h1>
               <p className="user-notice">
-                Sign-in using an email address and password.
-              </p>
-              <p>
-                This way i can stop majority of malicious bots from obtaining
-                this data as easily.
-              </p>{' '}
-              <p>Provided by: John Higgins</p>
-              <p> - Web Developer Portfolio -- using a React Framework</p>
+                Sign-in using an email address and password. </p>
               <StyledFirebaseAuth
                 uiConfig={uiConfig}
                 firebaseAuth={myFirebase.auth()}
               />
+              <p>Provided by: John Higgins</p>
+              <p> - Web Developer Portfolio -- using a React Framework</p>
             </div>
           ) : (
             <Main
