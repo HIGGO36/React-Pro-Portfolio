@@ -24,6 +24,10 @@ function AppContent() {
     privacyPolicyUrl: 'https://www.google.com/policies/privacy/',
   };  
 
+  const handleSignIn = () => {
+    setShowUserAuth(true);
+  };
+
   const handleSignOut = async () => {
     try {
       await myFirebase.auth().signOut();
@@ -38,9 +42,9 @@ function AppContent() {
     <div>
       {!loading && (
         <>
-          {user ? (
-            <>
-              <div className="firebase-user">
+          <div className="firebase-user">
+            {user ? (
+              <>
                 <h1 className="successful-auth-welcome">
                   Access approved:{' '}
                   <span className="firebase-email">{user.email}</span>
@@ -50,15 +54,21 @@ function AppContent() {
                     SIGN<span className="faulty-letter">OUT</span>
                   </span>
                 </button>
-              </div>
-              <Main
-                user={user}
-                token={token}
-                myFirebase={myFirebase}
-                onWorkExperienceClick={() => setShowUserAuth(true)}
-              />
-            </>
-          ) : showUserAuth ? (
+              </>
+            ) : (
+              <>
+                <h1 className="successful-auth-welcome">
+                  Please sign in to access full functionality
+                </h1>
+                <button className="glowing-btn" onClick={handleSignIn}>
+                  <span className="glowing-txt">
+                    SIGN<span className="faulty-letter">IN</span>
+                  </span>
+                </button>
+              </>
+            )}
+          </div>
+          {showUserAuth && (
             <div className="firebase-user-auth">
               <h1 className="firebase-user-auth-h1">Get Full Access :</h1>
               <p className="user-notice">
@@ -70,14 +80,12 @@ function AppContent() {
               <p>Provided by: John Higgins</p>
               <p> - Web Developer Portfolio -- using a React Framework</p>
             </div>
-          ) : (
-            <Main
-              user={null}
-              token={null}
-              myFirebase={myFirebase}
-              onWorkExperienceClick={() => setShowUserAuth(true)}
-            />
           )}
+          <Main
+            user={user}
+            token={token}
+            myFirebase={myFirebase}
+          />
         </>
       )}
     </div>

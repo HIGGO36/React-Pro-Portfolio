@@ -1,5 +1,6 @@
 import firebase from 'firebase/compat/app';
 
+// loading the environment variables from the .env file into the process.env object.
 const firebaseConfig = {
   apiKey: process.env.REACT_APP_FIREBASE_API_KEY,
   authDomain: process.env.REACT_APP_FIREBASE_AUTH_DOMAIN,
@@ -9,9 +10,14 @@ const firebaseConfig = {
   vapidKey: process.env.REACT_APP_FIREBASE_VAPID_KEY,
 };
 
+
+//  check if there are no Firebase apps initialized yet
 if (!firebase.apps.length) {
+
+//  initialize Firebase with the configuration object.
   firebase.initializeApp(firebaseConfig);
 }
 
+// export myFirebase as the initialized Firebase instance
 const myFirebase = firebase;
 export default myFirebase;
