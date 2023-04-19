@@ -32,7 +32,7 @@ function AppContent() {
     try {
       await myFirebase.auth().signOut();
       // Redirect user to the homepage after signout
-      window.location.href = 'https://higgo36.github.io/React-Pro-Portfolio/';
+      window.location.href = '/';
     } catch (error) {
       console.error(error);
     }
