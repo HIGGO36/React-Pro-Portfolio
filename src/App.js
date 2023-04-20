@@ -12,7 +12,6 @@ function AppContent() {
   const myFirebase = useFirebase();
   const [showUserAuth, setShowUserAuth] = useState(false);
 
-  // used as a configuration object for the StyledFirebaseAuth component from the react-firebaseui library.
   const uiConfig = {
     signInFlow: 'redirect',
     signInSuccessUrl: window.location.href,
@@ -22,7 +21,7 @@ function AppContent() {
     ],
     tosUrl: 'https://www.google.com/policies/terms/',
     privacyPolicyUrl: 'https://www.google.com/policies/privacy/',
-  };  
+  };
 
   const handleSignIn = () => {
     setShowUserAuth(true);
@@ -31,9 +30,7 @@ function AppContent() {
   const handleSignOut = async () => {
     try {
       await myFirebase.auth().signOut();
-      // Redirect user to the homepage after signout
       window.location.href = 'https://higgo36.github.io/React-Pro-Portfolio/';
-    
     } catch (error) {
       console.error(error);
     }
@@ -47,7 +44,7 @@ function AppContent() {
             {user ? (
               <>
                 <h1 className="successful-auth-welcome">
-                  Access approved:{' '}
+                  Access approved:
                   <span className="firebase-email">{user.email}</span>
                 </h1>
                 <button className="glowing-btn" onClick={handleSignOut}>

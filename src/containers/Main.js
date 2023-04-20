@@ -28,29 +28,30 @@ const Main = ({ user, token, myFirebase }) => {
     setIsDark(!isDark);
   };
 
-  // Handles User Auth via myFirebase shared object on the Work Experience Header list element
-  // can use this similar logic on other elements while maintaining data integrity
+  const signInWithEmail = () => {
+    myFirebase.auth().signInWithEmailAndPassword(email, password)
+      .then(() => {
+        setShowWorkExperience(true);
+      })
+      .catch((error) => {
+        console.error(error);
+      });
+  };
+
   const handleWorkExperienceClick = () => {
     if (token) {
       setShowWorkExperience(true);
-
     } else {
       myFirebase.auth().signInWithPopup(new myFirebase.auth.GoogleAuthProvider())
         .then(() => {
           setShowWorkExperience(true);
         })
         .catch(() => {
-          myFirebase.auth().signInWithEmailAndPassword(email, password)
-            .then(() => {
-              setShowWorkExperience(true);
-            })
-            .catch((error) => {
-              console.error(error);
-            });
+          signInWithEmail();
         });
     }
   };
-  
+
   const onSignInSuccess = () => {
     setShowWorkExperience(true);
   };
@@ -78,8 +79,9 @@ const Main = ({ user, token, myFirebase }) => {
   }, []);
 
   useEffect(() => {
-    const unsubscribe = token && user ? setShowWorkExperience(true) : () => {};
-    return unsubscribe;
+    if (token && user) {
+      setShowWorkExperience(true);
+    }
   }, [token, user]);
 
   return (
@@ -102,7 +104,7 @@ const Main = ({ user, token, myFirebase }) => {
                 <p className="private-text">Only need your email address and password.</p>
                 <input type="email" placeholder="Email" onChange={handleEmailChange} />
                 <input type="password" placeholder="Password" onChange={handlePasswordChange} />
-                <button onClick={handleWorkExperienceClick}>Sign In</button>
+                <button onClick={handleWorkExperienceClick}>Access</button>
               </div>
             )}
             <Projects />
@@ -118,3 +120,4 @@ const Main = ({ user, token, myFirebase }) => {
 };
 
 export default Main;
+
