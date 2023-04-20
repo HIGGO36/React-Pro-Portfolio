@@ -33,6 +33,7 @@ function AppContent() {
       await myFirebase.auth().signOut();
       // Redirect user to the homepage after signout
       window.location.href = 'https://higgo36.github.io/React-Pro-Portfolio/';
+    
     } catch (error) {
       console.error(error);
     }
@@ -58,7 +59,7 @@ function AppContent() {
             ) : (
               <>
                 <h1 className="successful-auth-welcome">
-                  Please sign in to access full functionality
+                  Get Full Access:
                 </h1>
                 <button className="glowing-btn" onClick={handleSignIn}>
                   <span className="glowing-txt">

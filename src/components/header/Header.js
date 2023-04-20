@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext, useEffect, useRef } from "react";
 import Headroom from "react-headroom";
 import "./Header.scss";
 import ToggleSwitch from "../ToggleSwitch/ToggleSwitch";
@@ -11,6 +11,21 @@ function Header({ handleWorkExperienceClick }) {
   const viewOpenSource = openSource.display;
   const viewSkills = skillsSection.display;
   const viewAchievement = achievementSection.display;
+  
+  const expLinkRef = useRef(null);
+// checking for html elements presence during mounting and dismounting of component
+// can reuse this logic for styling via components mounting events
+  useEffect(() => {
+    const workId = "workExperience";
+
+    if (expLinkRef.current && !document.getElementById(workId)) {
+      expLinkRef.current.style.backgroundColor = "#7B97DA";
+      expLinkRef.current.style.backgroundColor =  "800";
+    } else if (expLinkRef.current) {
+      expLinkRef.current.style.backgroundColor = "#171c28";
+      expLinkRef.current.style.backgroundColor = "500";
+    }
+  }, []);
 
   return (
     <Headroom>
@@ -35,7 +50,9 @@ function Header({ handleWorkExperienceClick }) {
           </li>
           {viewExperience && (
             <li>
-              <a href="#experience" onClick={handleWorkExperienceClick}>Work Experiences</a>
+              <a href="#experience" onClick={handleWorkExperienceClick} ref={expLinkRef}>
+                Work Experiences
+              </a>
             </li>
           )}
           {viewOpenSource && (
@@ -63,4 +80,5 @@ function Header({ handleWorkExperienceClick }) {
     </Headroom>
   );
 }
+
 export default Header;

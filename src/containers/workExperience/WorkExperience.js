@@ -1,17 +1,32 @@
-import React, {useContext} from "react";
+import React, { useContext, useEffect, useRef } from "react";
 import "./WorkExperience.scss";
 import ExperienceCard from "../../components/experienceCard/ExperienceCard";
-import {workExperiences} from "../../portfolio";
-import {Fade} from "react-reveal";
+import { workExperiences } from "../../portfolio";
+import { Fade } from "react-reveal";
 import StyleContext from "../../contexts/StyleContext";
 
 export default function WorkExperience() {
-  const {isDark} = useContext(StyleContext);
+  const { isDark } = useContext(StyleContext);
+
+  const experienceRef = useRef(null);
+// checking for html elements presence during mounting and dismounting of component
+// can reuse this logic for styling via components mounting events
+  useEffect(() => {
+    const workId = "workExperience";
+
+    if (experienceRef.current && !document.getElementById(workId)) {
+      experienceRef.current.style.border = "4px solid #7B97DA";
+
+    } else if (experienceRef.current) {
+      experienceRef.current.style.border = "none";
+    }
+  }, []);
+
   if (workExperiences.display) {
     return (
       <div id="experience">
         <Fade bottom duration={1000} distance="20px">
-          <div className="experience-container" id="workExperience">
+          <div className="experience-container" id="workExperience" ref={experienceRef}>
             <div>
               <h1 className="experience-heading">Experiences</h1>
               <div className="experience-cards-div">
@@ -26,7 +41,7 @@ export default function WorkExperience() {
                         date: card.date,
                         companylogo: card.companylogo,
                         role: card.role,
-                        descBullets: card.descBullets
+                        descBullets: card.descBullets,
                       }}
                     />
                   );

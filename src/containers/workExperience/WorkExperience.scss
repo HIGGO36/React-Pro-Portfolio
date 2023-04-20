@@ -22,6 +22,41 @@
   flex: 1;
 }
 
+// User Access Styling
+
+#private-section {
+  font-size: 20px;
+  border: 8px solid #7B97DA;
+  width: 100%;
+  margin: 0 auto;
+  padding: 10px;
+  text-align: left;
+}
+
+#private-section input {
+  padding: 5%;
+  margin: 0 auto;
+  text-align: center;
+  font-size: 2em;
+  background: #FBFFE5;
+  border-radius: 5px;
+}
+
+.private-text {
+  font-size: 1.4rem;
+  text-align: center;
+}
+
+#private-section button {
+
+    padding: 2% 4%;
+    border-radius: 5px;
+    background: #7B97DA;
+    color: #051D2A;
+    font-weight: 700;
+
+}
+
 /* Media Query */
 
 @media (max-width: 1380px) {

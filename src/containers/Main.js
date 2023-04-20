@@ -16,11 +16,52 @@ import { StyleProvider } from "../contexts/StyleContext";
 import { useLocalStorage } from "../hooks/useLocalStorage";
 import "./Main.scss";
 
-const Main = ({ user, token, onWorkExperienceClick }) => {
+const Main = ({ user, token, myFirebase }) => {
   const darkPref = window.matchMedia("(prefers-color-scheme: dark)");
   const [isDark, setIsDark] = useLocalStorage("isDark", darkPref.matches);
   const [isShowingSplashAnimation, setIsShowingSplashAnimation] = useState(true);
   const [showWorkExperience, setShowWorkExperience] = useState(false);
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+
+  const changeTheme = () => {
+    setIsDark(!isDark);
+  };
+
+  // Handles User Auth via myFirebase shared object on the Work Experience Header list element
+  // can use this similar logic on other elements while maintaining data integrity
+  const handleWorkExperienceClick = () => {
+    if (token) {
+      setShowWorkExperience(true);
+
+    } else {
+      myFirebase.auth().signInWithPopup(new myFirebase.auth.GoogleAuthProvider())
+        .then(() => {
+          setShowWorkExperience(true);
+        })
+        .catch(() => {
+          myFirebase.auth().signInWithEmailAndPassword(email, password)
+            .then(() => {
+              setShowWorkExperience(true);
+            })
+            .catch((error) => {
+              console.error(error);
+            });
+        });
+    }
+  };
+  
+  const onSignInSuccess = () => {
+    setShowWorkExperience(true);
+  };
+
+  const handleEmailChange = (event) => {
+    setEmail(event.target.value);
+  };
+
+  const handlePasswordChange = (event) => {
+    setPassword(event.target.value);
+  };
 
   useEffect(() => {
     if (splashScreen.enabled) {
@@ -41,22 +82,6 @@ const Main = ({ user, token, onWorkExperienceClick }) => {
     return unsubscribe;
   }, [token, user]);
 
-  const changeTheme = () => {
-    setIsDark(!isDark);
-  };
-
-  const handleWorkExperienceClick = () => {
-    if (token && user) {
-      setShowWorkExperience(true);
-    } else {
-      onWorkExperienceClick();
-    }
-  };
-
-  const onSignInSuccess = () => {
-    setShowWorkExperience(true);
-  };
-
   return (
     <div className={isDark ? "dark-mode" : null}>
       <StyleProvider value={{ isDark: isDark, changeTheme: changeTheme }}>
@@ -72,7 +97,13 @@ const Main = ({ user, token, onWorkExperienceClick }) => {
             {showWorkExperience && user ? (
               <WorkExperience user={user} onSignInSuccess={onSignInSuccess} />
             ) : (
-              <div className="user-notice">Please sign in to see work experience.</div>
+              <div id="private-section">
+                <h3>Private Content</h3>
+                <p className="private-text">Only need your email address and password.</p>
+                <input type="email" placeholder="Email" onChange={handleEmailChange} />
+                <input type="password" placeholder="Password" onChange={handlePasswordChange} />
+                <button onClick={handleWorkExperienceClick}>Sign In</button>
+              </div>
             )}
             <Projects />
             <Achievement />
