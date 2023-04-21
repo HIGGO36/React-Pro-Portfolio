@@ -1,3 +1,5 @@
+// App.js
+
 import React, { useContext, useState, useEffect, useRef, useCallback } from 'react';
 import 'firebase/compat/auth';
 import StyledFirebaseAuth from 'react-firebaseui/StyledFirebaseAuth';
@@ -22,6 +24,12 @@ function AppContent() {
     ],
     tosUrl: 'https://www.google.com/policies/terms/',
     privacyPolicyUrl: 'https://www.google.com/policies/privacy/',
+    callbacks: {
+      signInSuccessWithAuthResult: (authResult, redirectUrl) => {
+        setShowUserAuth(false);
+        return false; // Prevent redirect after sign-in.
+      },
+    },
   };
 
   const handleSignIn = () => {
@@ -92,35 +100,27 @@ function AppContent() {
           {showUserAuth && (
             <div ref={firebaseUserAuthRef} className="firebase-user-auth">
               <div className="firebase-user-auth-header">
-                <h1 className="firebase-user-auth-h1">Get Full Access:</h1>
-                <button className="auth-close-btn" onClick={handleClose}>
-                  <span className="auth-close-icon">&times;</span>
-                </button>
-              </div>
-              <p className="user-notice">
-                Sign in using an email address and password.
-              </p>
-              <StyledFirebaseAuth uiConfig={uiConfig} firebaseAuth={myFirebase.auth()} />
-          <p>
-            Provided by: John Higgins
-            <br />- Web Developer Portfolio - using a React Framework
-          </p>
+                        <h1 className="firebase-user-auth-h1">Get Full Access:</h1>
+        <button className="auth-close-btn" onClick={handleClose}>
+        <span className="auth-close-icon">×</span>
+        </button>
         </div>
-      )}
-      <Main user={user} token={token} handleSignIn={handleSignIn} />
-    </>
-  )}
-</div>
-);
-}
+        <StyledFirebaseAuth uiConfig={uiConfig} firebaseAuth={myFirebase.auth()} />
+        </div>
+        )}
+        <Main user={user} token={token} handleSignIn={handleSignIn} />
+        </>
+        )}
+        </div>
+        );
+        }
 
-function App() {
-return (
-<AuthProvider>
-<AppContent />
-</AuthProvider>
-);
-}
+        function App() {
+        return (
+        <AuthProvider>
+        <AppContent />
+        </AuthProvider>
+        );
+        }
 
-export default App;
-
+        export default App;

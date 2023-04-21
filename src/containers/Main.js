@@ -55,7 +55,7 @@ const Main = ({ user, token, handleSignIn }) => {
       scrollToSignIn();
       handleSignIn();
     } else {
-      const workExperienceSection = document.getElementById("firebaseAuthUi");
+      const workExperienceSection = document.getElementById("experience");
       workExperienceSection.scrollIntoView({ behavior: "smooth" });
     }
   };
