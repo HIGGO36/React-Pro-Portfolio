@@ -19,15 +19,29 @@ function Header({ requestWorkExperience, user }) {
   // Note: the data integrity and persistancy is maintained by having one single point in the context/authProvider.js
   useEffect(() => {
     const workId = "workExperience";
-    
+  
     if (expLinkRef.current && !document.getElementById(workId) && !user) {
+      expLinkRef.current.style.backgroundColor = isDark ? "#ffffff" : "#171c28";
       expLinkRef.current.style.backgroundColor = "#7B97DA";
       expLinkRef.current.style.backgroundColor = "800";
     } else if (expLinkRef.current && user) {
-      expLinkRef.current.style.backgroundColor = "#171c28";
-      expLinkRef.current.style.backgroundColor = "500";
+      expLinkRef.current.style.backgroundColor = isDark ? "#171c28" : "#ffffff";
+      expLinkRef.current.style.color = isDark ? "#ffffff" : "#000000";
+      expLinkRef.current.style.fontWeight = isDark ? "500" : "400";
     }
-  }, [user]);
+  }, [user, isDark]);
+  
+  // useEffect(() => {
+  //   const workId = "workExperience";
+    
+  //   if (expLinkRef.current && !document.getElementById(workId) && !user) {
+  //     expLinkRef.current.style.backgroundColor = "#7B97DA";
+  //     expLinkRef.current.style.backgroundColor = "800";
+  //   } else if (expLinkRef.current && user) {
+  //     expLinkRef.current.style.backgroundColor = "#171c28";
+  //     expLinkRef.current.style.backgroundColor = "500";
+  //   }
+  // }, [user]);
   
 
   const handleExperienceClick = (event) => {
