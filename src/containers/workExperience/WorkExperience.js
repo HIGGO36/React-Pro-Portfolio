@@ -11,6 +11,8 @@ export default function WorkExperience() {
   const experienceRef = useRef(null);
 // checking for html elements presence during mounting and dismounting of component
 // can reuse this logic for styling via components mounting events
+// Note: this is not using shared userAuth property to try increase performance, 
+// still being tested and might be updated to ref user state from authProvider
   useEffect(() => {
     const workId = "workExperience";
 
@@ -21,6 +23,7 @@ export default function WorkExperience() {
       experienceRef.current.style.border = "none";
     }
   }, []);
+
 
   if (workExperiences.display) {
     return (

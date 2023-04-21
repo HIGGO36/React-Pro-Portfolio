@@ -16,6 +16,8 @@ import { StyleProvider } from "../contexts/StyleContext";
 import { useLocalStorage } from "../hooks/useLocalStorage";
 import "./Main.scss";
 
+  // Note: the data integrity and persistancy is maintained by having one single point in the context/authProvider.js
+
 const Main = ({ user, token, handleSignIn }) => {
   const darkPref = window.matchMedia("(prefers-color-scheme: dark)");
   const [isDark, setIsDark] = useLocalStorage("isDark", darkPref.matches);
@@ -67,7 +69,7 @@ const Main = ({ user, token, handleSignIn }) => {
           <SplashScreen />
         ) : (
           <>
-            <Header requestWorkExperience={requestWorkExperience} />
+           <Header requestWorkExperience={requestWorkExperience} user={user} />
             <Greeting user={user} />
             <Skills />
             <StackProgress />

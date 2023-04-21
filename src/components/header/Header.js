@@ -1,30 +1,34 @@
 import React, { useContext, useEffect, useRef } from "react";
 import Headroom from "react-headroom";
-import "./Header.scss";
 import ToggleSwitch from "../ToggleSwitch/ToggleSwitch";
 import StyleContext from "../../contexts/StyleContext";
 import { greeting, workExperiences, skillsSection, openSource, achievementSection } from "../../portfolio";
+import "./Header.scss";
 
-function Header({ requestWorkExperience }) {
+function Header({ requestWorkExperience, user }) {
   const { isDark } = useContext(StyleContext);
   const viewExperience = workExperiences.display;
   const viewOpenSource = openSource.display;
   const viewSkills = skillsSection.display;
   const viewAchievement = achievementSection.display;
 
-  const expLinkRef = useRef(null);
 
+  // declares a reference to a DOM element using the useRef hook,
+  const expLinkRef = useRef(null);
+  // and then uses the useEffect hook to update the background color and text boldness of that element based on the shared user state.
+  // Note: the data integrity and persistancy is maintained by having one single point in the context/authProvider.js
   useEffect(() => {
     const workId = "workExperience";
-
-    if (expLinkRef.current && !document.getElementById(workId)) {
+    
+    if (expLinkRef.current && !document.getElementById(workId) && !user) {
       expLinkRef.current.style.backgroundColor = "#7B97DA";
       expLinkRef.current.style.backgroundColor = "800";
-    } else if (expLinkRef.current) {
+    } else if (expLinkRef.current && user) {
       expLinkRef.current.style.backgroundColor = "#171c28";
       expLinkRef.current.style.backgroundColor = "500";
     }
-  }, []);
+  }, [user]);
+  
 
   const handleExperienceClick = (event) => {
     requestWorkExperience();

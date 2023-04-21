@@ -1,5 +1,3 @@
-// App.js
-
 import React, { useContext, useState, useEffect, useRef, useCallback } from 'react';
 import 'firebase/compat/auth';
 import StyledFirebaseAuth from 'react-firebaseui/StyledFirebaseAuth';
@@ -14,6 +12,10 @@ function AppContent() {
   const myFirebase = useFirebase();
   const [showUserAuth, setShowUserAuth] = useState(false);
   const firebaseUserAuthRef = useRef(null);
+
+    // Note: the data integrity and persistancy is maintained by having one single point in the context/authProvider.js
+    // where the AuthProvider component  creates a context provider that allows all child components to access the authentication state of the user. 
+    // The component sets up the initial state for loading, user, and token, and uses the useState hook to update the state when there is a change in the authentication state of the user. 
 
   const uiConfig = {
     signInFlow: 'popup',
@@ -34,6 +36,7 @@ function AppContent() {
 
   const handleSignIn = () => {
     setShowUserAuth(true);
+
   };
 
   const handleClose = () => {
@@ -48,6 +51,7 @@ function AppContent() {
       console.error(error);
     }
   };
+
 
   const handleClickOutside = useCallback((event) => {
     if (firebaseUserAuthRef.current && !firebaseUserAuthRef.current.contains(event.target)) {
