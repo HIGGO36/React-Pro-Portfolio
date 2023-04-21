@@ -5,31 +5,35 @@ import ToggleSwitch from "../ToggleSwitch/ToggleSwitch";
 import StyleContext from "../../contexts/StyleContext";
 import { greeting, workExperiences, skillsSection, openSource, achievementSection } from "../../portfolio";
 
-function Header({ handleWorkExperienceClick }) {
+function Header({ requestWorkExperience }) {
   const { isDark } = useContext(StyleContext);
   const viewExperience = workExperiences.display;
   const viewOpenSource = openSource.display;
   const viewSkills = skillsSection.display;
   const viewAchievement = achievementSection.display;
-  
+
   const expLinkRef = useRef(null);
-// checking for html elements presence during mounting and dismounting of component
-// can reuse this logic for styling via components mounting events
+
   useEffect(() => {
     const workId = "workExperience";
 
     if (expLinkRef.current && !document.getElementById(workId)) {
       expLinkRef.current.style.backgroundColor = "#7B97DA";
-      expLinkRef.current.style.backgroundColor =  "800";
+      expLinkRef.current.style.backgroundColor = "800";
     } else if (expLinkRef.current) {
       expLinkRef.current.style.backgroundColor = "#171c28";
       expLinkRef.current.style.backgroundColor = "500";
     }
   }, []);
 
+  const handleExperienceClick = (event) => {
+    requestWorkExperience();
+    event.preventDefault();
+  };
+  
   return (
     <Headroom>
-      <header className={isDark ? "dark-menu header" : "header"}>
+      <header id="headerComp" className={isDark ? "dark-menu header" : "header"}>
         <a href="/" className="logo">
           <span className="grey-color"> &lt;</span>
           <span className="logo-name">{greeting.username}</span>
@@ -50,7 +54,7 @@ function Header({ handleWorkExperienceClick }) {
           </li>
           {viewExperience && (
             <li>
-              <a href="#experience" onClick={handleWorkExperienceClick} ref={expLinkRef}>
+              <a href="#experience" onClick={handleExperienceClick} ref={expLinkRef}>
                 Work Experiences
               </a>
             </li>

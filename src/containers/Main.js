@@ -16,52 +16,14 @@ import { StyleProvider } from "../contexts/StyleContext";
 import { useLocalStorage } from "../hooks/useLocalStorage";
 import "./Main.scss";
 
-const Main = ({ user, token, myFirebase }) => {
+const Main = ({ user, token, handleSignIn }) => {
   const darkPref = window.matchMedia("(prefers-color-scheme: dark)");
   const [isDark, setIsDark] = useLocalStorage("isDark", darkPref.matches);
   const [isShowingSplashAnimation, setIsShowingSplashAnimation] = useState(true);
   const [showWorkExperience, setShowWorkExperience] = useState(false);
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
 
   const changeTheme = () => {
     setIsDark(!isDark);
-  };
-
-  const signInWithEmail = () => {
-    myFirebase.auth().signInWithEmailAndPassword(email, password)
-      .then(() => {
-        setShowWorkExperience(true);
-      })
-      .catch((error) => {
-        console.error(error);
-      });
-  };
-
-  const handleWorkExperienceClick = () => {
-    if (token) {
-      setShowWorkExperience(true);
-    } else {
-      myFirebase.auth().signInWithPopup(new myFirebase.auth.GoogleAuthProvider())
-        .then(() => {
-          setShowWorkExperience(true);
-        })
-        .catch(() => {
-          signInWithEmail();
-        });
-    }
-  };
-
-  const onSignInSuccess = () => {
-    setShowWorkExperience(true);
-  };
-
-  const handleEmailChange = (event) => {
-    setEmail(event.target.value);
-  };
-
-  const handlePasswordChange = (event) => {
-    setPassword(event.target.value);
   };
 
   useEffect(() => {
@@ -79,10 +41,24 @@ const Main = ({ user, token, myFirebase }) => {
   }, []);
 
   useEffect(() => {
-    if (token && user) {
-      setShowWorkExperience(true);
-    }
+    const unsubscribe = token && user ? setShowWorkExperience(true) : () => {};
+    return unsubscribe;
   }, [token, user]);
+
+  const scrollToSignIn = () => {
+    const signInButton = document.getElementById("firebaseAuthUi");
+    signInButton.scrollIntoView({ behavior: "smooth" });
+  };
+
+  const requestWorkExperience = () => {
+    if (!user) {
+      scrollToSignIn();
+      handleSignIn();
+    } else {
+      const workExperienceSection = document.getElementById("firebaseAuthUi");
+      workExperienceSection.scrollIntoView({ behavior: "smooth" });
+    }
+  };
 
   return (
     <div className={isDark ? "dark-mode" : null}>
@@ -91,20 +67,22 @@ const Main = ({ user, token, myFirebase }) => {
           <SplashScreen />
         ) : (
           <>
-            <Header user={user} handleWorkExperienceClick={handleWorkExperienceClick} />
+            <Header requestWorkExperience={requestWorkExperience} />
             <Greeting user={user} />
             <Skills />
             <StackProgress />
             <Education />
             {showWorkExperience && user ? (
-              <WorkExperience user={user} onSignInSuccess={onSignInSuccess} />
+              <WorkExperience user={user} />
             ) : (
               <div id="private-section">
                 <h3>Private Content</h3>
                 <p className="private-text">Only need your email address and password.</p>
-                <input type="email" placeholder="Email" onChange={handleEmailChange} />
-                <input type="password" placeholder="Password" onChange={handlePasswordChange} />
-                <button onClick={handleWorkExperienceClick}>Access</button>
+                <button className="glowing-btn" onClick={requestWorkExperience}>
+                  <span className="glowing-txt">
+                    SIGN<span className="faulty-letter">IN</span>
+                  </span>
+                </button>
               </div>
             )}
             <Projects />
@@ -120,4 +98,3 @@ const Main = ({ user, token, myFirebase }) => {
 };
 
 export default Main;
-

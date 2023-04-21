@@ -48,10 +48,12 @@ body {
 .user-notice {
 
   width: 80%;
-  margin: 0 aut0;
+  margin: 0 auto;
   background: $userNoticeBackground;
   color: $userNoticeColor;
   line-height: 1.4;
+  font-size: 1.2rem;
+  text-align: center;
   text-decoration-style: unset;
   font-weight: 750;
   padding: .5rem;
@@ -74,11 +76,29 @@ body {
   height: 100vh;
   min-width: 280px;
   background: $darkBackground;
-  padding: 6%;
-  line-height: 1.5;
+  padding: 1% 5% 5% 5%;
   color: $spaceWhite;
   text-align: center;
   overflow-wrap: break-word;
+}
+
+.firebase-user-auth-header .auth-close-btn {
+  padding: 1.2% 1.75%;
+  background: $userAuth;
+  position: absolute;
+  top: 20%;
+  left: 5%;
+  border-radius: 5px;
+}
+
+.firebase-user-auth-header .auth-close-btn:hover, .firebase-user-auth-header .auth-close-btn:focus {
+  opacity: 80%;
+  border: 1px solid $lightBoxShadow;
+}
+
+.firebase-user-auth-header .auth-close-btn .auth-close-icon {
+   font-weight: 900;
+    padding: 4px;
 }
 
 .firebaseui-container {
@@ -118,19 +138,18 @@ margin-left: 5%;
 
 .firebase-user-auth-h1 {
   font-size: 1.4rem;
-  margin-bottom: 2rem;
   text-align: center;
   color: $spaceWhite;
   font-weight: 800;
 }
 
 .firebaseui-list-item {
-  padding: 20px !important;
+  padding: 10px !important;
   margin: 0 !important;
 }
 
 .firebaseui-list-item:hover {
-  opacity: 0.25;
+  opacity: 80%;
 }
 
 h3 {
@@ -139,19 +158,26 @@ h3 {
   text-align: center;
 }
 
-.user-notice {
-  font-size: 1.25rem;
-  text-align: center;
+@media (min-width: 1080px) {
+
+  .firebase-user-auth-header .auth-close-btn {
+     top: 23%
+  }
 }
-
-
-@media (max-width: 380px)  {
+@media (max-width: 420px)  {
 
   .firebase-user-auth {
    font-size: .8rem;
   }
   .firebase-user-auth-h1 {
     font-size: 1.2rem;
+  }
+
+  .firebase-user-auth-header .auth-close-btn {
+    top: 18%;
+  }
+  .user-notice {
+    font-size: .85rem;
   }
 }
 
@@ -372,6 +398,7 @@ h3 {
 
 @media only screen and (max-width: 600px) {
   .glowing-btn{
-    font-size: 1em;
+    font-size: 1.1em;
+    padding: 1em 2em;
   }
 }

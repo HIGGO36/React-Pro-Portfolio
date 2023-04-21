@@ -1,4 +1,4 @@
-import React, { useContext, useState } from 'react';
+import React, { useContext, useState, useEffect, useRef, useCallback } from 'react';
 import 'firebase/compat/auth';
 import StyledFirebaseAuth from 'react-firebaseui/StyledFirebaseAuth';
 import Main from './containers/Main';
@@ -11,9 +11,10 @@ function AppContent() {
   const token = useToken();
   const myFirebase = useFirebase();
   const [showUserAuth, setShowUserAuth] = useState(false);
+  const firebaseUserAuthRef = useRef(null);
 
   const uiConfig = {
-    signInFlow: 'redirect',
+    signInFlow: 'popup',
     signInSuccessUrl: window.location.href,
     signInOptions: [
       myFirebase.auth.GoogleAuthProvider.PROVIDER_ID,
@@ -27,6 +28,10 @@ function AppContent() {
     setShowUserAuth(true);
   };
 
+  const handleClose = () => {
+    setShowUserAuth(false);
+  };
+
   const handleSignOut = async () => {
     try {
       await myFirebase.auth().signOut();
@@ -36,11 +41,29 @@ function AppContent() {
     }
   };
 
+  const handleClickOutside = useCallback((event) => {
+    if (firebaseUserAuthRef.current && !firebaseUserAuthRef.current.contains(event.target)) {
+      handleClose();
+    }
+  }, []);
+
+  useEffect(() => {
+    if (showUserAuth) {
+      document.addEventListener("mousedown", handleClickOutside);
+    } else {
+      document.removeEventListener("mousedown", handleClickOutside);
+    }
+
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, [showUserAuth, handleClickOutside]);
+
   return (
     <div>
       {!loading && (
         <>
-          <div className="firebase-user">
+          <div id="firebaseAuthUi" className="firebase-user">
             {user ? (
               <>
                 <h1 className="successful-auth-welcome">
@@ -67,35 +90,37 @@ function AppContent() {
             )}
           </div>
           {showUserAuth && (
-            <div className="firebase-user-auth">
-              <h1 className="firebase-user-auth-h1">Get Full Access :</h1>
+            <div ref={firebaseUserAuthRef} className="firebase-user-auth">
+              <div className="firebase-user-auth-header">
+                <h1 className="firebase-user-auth-h1">Get Full Access:</h1>
+                <button className="auth-close-btn" onClick={handleClose}>
+                  <span className="auth-close-icon">&times;</span>
+                </button>
+              </div>
               <p className="user-notice">
-                Sign-in using an email address and password. </p>
-              <StyledFirebaseAuth
-                uiConfig={uiConfig}
-                firebaseAuth={myFirebase.auth()}
-              />
-              <p>Provided by: John Higgins</p>
-              <p> - Web Developer Portfolio -- using a React Framework</p>
-            </div>
-          )}
-          <Main
-            user={user}
-            token={token}
-            myFirebase={myFirebase}
-          />
-        </>
+                Sign in using an email address and password.
+              </p>
+              <StyledFirebaseAuth uiConfig={uiConfig} firebaseAuth={myFirebase.auth()} />
+          <p>
+            Provided by: John Higgins
+            <br />- Web Developer Portfolio - using a React Framework
+          </p>
+        </div>
       )}
-    </div>
-  );
+      <Main user={user} token={token} handleSignIn={handleSignIn} />
+    </>
+  )}
+</div>
+);
 }
 
 function App() {
-  return (
-    <AuthProvider>
-      <AppContent />
-    </AuthProvider>
-  );
+return (
+<AuthProvider>
+<AppContent />
+</AuthProvider>
+);
 }
 
 export default App;
+
