@@ -5,7 +5,7 @@ import StyleContext from "../../contexts/StyleContext";
 import { greeting, workExperiences, skillsSection, openSource, achievementSection } from "../../portfolio";
 import "./Header.scss";
 
-function Header({ requestWorkExperience, user }) {
+function Header({ requestWorkExperience, requestContactInfo, user }) {
   const { isDark } = useContext(StyleContext);
   const viewExperience = workExperiences.display;
   const viewOpenSource = openSource.display;
@@ -15,6 +15,7 @@ function Header({ requestWorkExperience, user }) {
 
   // declares a reference to a DOM element using the useRef hook,
   const expLinkRef = useRef(null);
+  const contactLinkRef = useRef(null);
   // and then uses the useEffect hook to update the background color and text boldness of that element based on the shared user state.
   // Note: the data integrity and persistancy is maintained by having one single point in the context/authProvider.js
   useEffect(() => {
@@ -30,22 +31,29 @@ function Header({ requestWorkExperience, user }) {
       expLinkRef.current.style.fontWeight = isDark ? "500" : "400";
     }
   }, [user, isDark]);
+
+  useEffect(() => {
+    const contactId = "contact";
   
-  // useEffect(() => {
-  //   const workId = "workExperience";
-    
-  //   if (expLinkRef.current && !document.getElementById(workId) && !user) {
-  //     expLinkRef.current.style.backgroundColor = "#7B97DA";
-  //     expLinkRef.current.style.backgroundColor = "800";
-  //   } else if (expLinkRef.current && user) {
-  //     expLinkRef.current.style.backgroundColor = "#171c28";
-  //     expLinkRef.current.style.backgroundColor = "500";
-  //   }
-  // }, [user]);
-  
+    if (contactLinkRef.current && !document.getElementById(contactId) && !user) {
+      contactLinkRef.current.style.backgroundColor = isDark ? "#ffffff" : "#171c28";
+      contactLinkRef.current.style.backgroundColor = "#7B97DA";
+      contactLinkRef.current.style.backgroundColor = "800";
+    } else if (contactLinkRef.current && user) {
+      contactLinkRef.current.style.backgroundColor = isDark ? "#171c28" : "#ffffff";
+      contactLinkRef.current.style.color = isDark ? "#ffffff" : "#000000";
+      contactLinkRef.current.style.fontWeight = isDark ? "500" : "400";
+    }
+  }, [user, isDark]);
+
 
   const handleExperienceClick = (event) => {
     requestWorkExperience();
+    event.preventDefault();
+  };
+
+  const handleContactClick = (event) => {
+    requestContactInfo();
     event.preventDefault();
   };
   
@@ -89,7 +97,7 @@ function Header({ requestWorkExperience, user }) {
           )}
 
           <li>
-            <a href="#contact">Contact Me</a>
+            <a href="#contact" onClick={handleContactClick} ref={contactLinkRef}>Contact Me</a>
           </li>
           <li>
             {/* eslint-disable-next-line jsx-a11y/anchor-is-valid */}

@@ -23,6 +23,7 @@ const Main = ({ user, token, handleSignIn }) => {
   const [isDark, setIsDark] = useLocalStorage("isDark", darkPref.matches);
   const [isShowingSplashAnimation, setIsShowingSplashAnimation] = useState(true);
   const [showWorkExperience, setShowWorkExperience] = useState(false);
+  const  [showContactInfo, setShowContactInfo] = useState(false);
 
   const changeTheme = () => {
     setIsDark(!isDark);
@@ -47,6 +48,13 @@ const Main = ({ user, token, handleSignIn }) => {
     return unsubscribe;
   }, [token, user]);
 
+
+  useEffect(() => {
+    const unsubscribe = token && user ? setShowContactInfo(true) : () => {};
+    return unsubscribe;
+  }, [token, user]);
+
+
   const scrollToSignIn = () => {
     const signInButton = document.getElementById("firebaseAuthUi");
     signInButton.scrollIntoView({ behavior: "smooth" });
@@ -62,6 +70,16 @@ const Main = ({ user, token, handleSignIn }) => {
     }
   };
 
+  const requestContactInfo = () => {
+    if (!user) {
+      scrollToSignIn();
+      handleSignIn();
+    } else {
+      const contactInfoSection = document.getElementById("contact");
+      contactInfoSection.scrollIntoView({ behavior: "smooth" });
+    }
+  };
+
   return (
     <div className={isDark ? "dark-mode" : null}>
       <StyleProvider value={{ isDark: isDark, changeTheme: changeTheme }}>
@@ -69,7 +87,7 @@ const Main = ({ user, token, handleSignIn }) => {
           <SplashScreen />
         ) : (
           <>
-           <Header requestWorkExperience={requestWorkExperience} user={user} />
+           <Header requestWorkExperience={requestWorkExperience} requestContactInfo={requestContactInfo} user={user} />
             <Greeting user={user} />
             <Skills />
             <StackProgress />
@@ -90,7 +108,22 @@ const Main = ({ user, token, handleSignIn }) => {
               )}
               <Projects />
               <Achievement />
-              <Profile />
+
+              {showContactInfo && user ? (
+              <Profile user={user} />
+            ) : (
+              <div id="private-section">
+              <button className="glowing-btn" onClick={requestContactInfo}>
+              <span className="glowing-txt">
+              SIGN<span className="faulty-letter">IN</span>
+              </span>
+              </button>
+              <h3>Private Content</h3>
+              <p className="private-text">You can use the Sign-In option for New or Existing user.</p>
+
+              </div>
+              )}
+
               <Footer />
               <ScrollToTopButton />
               </>
