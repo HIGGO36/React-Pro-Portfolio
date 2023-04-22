@@ -78,21 +78,22 @@ const Main = ({ user, token, handleSignIn }) => {
               <WorkExperience user={user} />
             ) : (
               <div id="private-section">
-                <h3>Private Content</h3>
-                <p className="private-text">Only need your email address and password.</p>
-                <button className="glowing-btn" onClick={requestWorkExperience}>
-                  <span className="glowing-txt">
-                    SIGN<span className="faulty-letter">IN</span>
-                  </span>
-                </button>
+              <button className="glowing-btn" onClick={requestWorkExperience}>
+              <span className="glowing-txt">
+              SIGN<span className="faulty-letter">IN</span>
+              </span>
+              </button>
+              <h3>Private Content</h3>
+              <p className="private-text">You can use the Sign-In option for New or Existing user.</p>
+
               </div>
-            )}
-            <Projects />
-            <Achievement />
-            <Profile />
-            <Footer />
-            <ScrollToTopButton />
-          </>
+              )}
+              <Projects />
+              <Achievement />
+              <Profile />
+              <Footer />
+              <ScrollToTopButton />
+              </>
         )}
       </StyleProvider>
     </div>

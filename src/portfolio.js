@@ -24,8 +24,11 @@ const greeting = {
   subTitle: emoji(
     "Creative, innovative, and reliable web developer proficient in HTML, CSS, and JavaScript. Excels in front-end responsive web development, user interface design, mobile testing, prototyping, and trouble-shooting within a team or individual setting. "
   ),
+
   resumeLink:
     "https://docs.google.com/document/d/12f1ErIoy-OFDym7pqYxdqqjHHGd7LVArcMwYckSgrhA/edit?usp=sharing", // Set to empty to hide the button
+
+
   displayGreeting: true, // Set false to hide this section, defaults to true
   displayResume: true // Set false to hide the resume link, defaults to true
 };
@@ -37,8 +40,7 @@ const greeting = {
 const socialMediaLinks = {
   github: "https://github.com/HIGGO36",
   linkedin: "https://www.linkedin.com/in/j-d-h/",
-  protonmail: "mailto:jwebdev99@protonmail.com",
-  // gmail: "saadpasta70@gmail.com",
+  gmail: "prowebdev36@gmail.com",
   // gitlab: "https://gitlab.com/saadpasta",
   // facebook: "https://www.facebook.com/saad.pasta7",
   // medium: "https://medium.com/@saadpasta",
@@ -302,7 +304,7 @@ const contactInfo = {
   subtitle:
     "Discuss a project or just want to say hi? My Inbox is open for all.",
   number: "",
-  email_address: "jwebdev99@protonmail.com"
+  email_address: "prowebdev36@gmail.com"
 };
 
 const isHireable = true; // Set false if you are not looking for a job. Also isHireable will be display as Open for opportunities: Yes/No in the GitHub footer

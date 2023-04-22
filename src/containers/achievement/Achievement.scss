@@ -1,9 +1,14 @@
 @import "../../_globalColor";
 
+.achievement-header {
+  text-align: center;
+  font-weight: 600;
+}
+
 .achievement-heading {
   font-size: 56px;
-  font-weight: 400;
-  line-height: normal;
+  font-weight: 600;
+  line-height: 1.8;
   margin: 0px;
 }
 .achievement-subtitle {

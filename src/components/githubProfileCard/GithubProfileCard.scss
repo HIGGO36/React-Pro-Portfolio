@@ -15,10 +15,17 @@
   box-shadow: none;
 }
 
+
+#contact {
+  text-align: center;
+}
+
+
 .prof-title {
   margin: 0;
   font-size: 40px;
-  font-weight: 400;
+  font-weight: 600;
+  width: 80%;
 }
 
 .location-div {
@@ -45,12 +52,12 @@
 }
 
 .bio-text {
-  line-height: 30px;
+  line-height: 1.8;
   font-size: 22px;
 }
 
 .desc-prof {
-  line-height: 45px;
+  line-height: 1.8;
   font-size: 19px;
 }
 
@@ -80,7 +87,7 @@
   }
 
   .desc-prof {
-    line-height: 30px;
+    line-height: 1.6;
     font-size: 16px;
   }
 

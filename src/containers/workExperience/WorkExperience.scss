@@ -6,7 +6,8 @@
 
 .experience-heading {
   font-size: 56px;
-  font-weight: 400;
+  font-weight: 600;
+  text-align: center;
 }
 
 .experience-container {
@@ -56,6 +57,14 @@
     color: #051D2A;
     font-weight: 700;
 
+}
+
+.resumeSection {
+  margin-top: 4%;
+}
+
+.resumeSection .main-button {
+  margin: 0 auto;
 }
 
 /* Media Query */
