@@ -43,17 +43,17 @@ const Main = ({ user, token, handleSignIn }) => {
     }
   }, []);
 
+// show or hide <work Experience> component based on userAuth state
   useEffect(() => {
     const unsubscribe = token && user ? setShowWorkExperience(true) : () => {};
     return unsubscribe;
-  }, [token, user]);
+  }, [token, user]); //  used to clean up the effect when the component unmounts or the dependencies change
 
-
+// show or hide contact info section which is in <profile> component based on userAuth state
   useEffect(() => {
     const unsubscribe = token && user ? setShowContactInfo(true) : () => {};
     return unsubscribe;
-  }, [token, user]);
-
+  }, [token, user]);  //  used to clean up the effect when the component unmounts or the dependencies change
 
   const scrollToSignIn = () => {
     const signInButton = document.getElementById("firebaseAuthUi");
