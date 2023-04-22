@@ -1,10 +1,10 @@
 {
   "files": {
-    "main.css": "/React-Pro-Portfolio/static/css/main.f9f6e5eb.css",
-    "main.js": "/React-Pro-Portfolio/static/js/main.09a0e683.js",
-    "static/css/64.bba8fa55.chunk.css": "/React-Pro-Portfolio/static/css/64.bba8fa55.chunk.css",
+    "main.css": "/React-Pro-Portfolio/static/css/main.f025ced2.css",
+    "main.js": "/React-Pro-Portfolio/static/js/main.6d1180e6.js",
+    "static/css/64.8c4e3a5c.chunk.css": "/React-Pro-Portfolio/static/css/64.8c4e3a5c.chunk.css",
     "static/js/64.e09f2851.chunk.js": "/React-Pro-Portfolio/static/js/64.e09f2851.chunk.js",
-    "static/css/769.84208e66.chunk.css": "/React-Pro-Portfolio/static/css/769.84208e66.chunk.css",
+    "static/css/769.f094d44c.chunk.css": "/React-Pro-Portfolio/static/css/769.f094d44c.chunk.css",
     "static/js/769.7434306a.chunk.js": "/React-Pro-Portfolio/static/js/769.7434306a.chunk.js",
     "static/media/FIT-seal-Logo.png": "/React-Pro-Portfolio/static/media/FIT-seal-Logo.43f1eb65c90a0f99dc0d.png",
     "static/media/Montserrat-Regular.ttf": "/React-Pro-Portfolio/static/media/Montserrat-Regular.3cd786652b8a2e9d41f2.ttf",
@@ -17,15 +17,15 @@
     "static/media/Unisys-U-Logo.png": "/React-Pro-Portfolio/static/media/Unisys-U-Logo.8a6ce95d9fa607cd7698.png",
     "static/media/skill.svg": "/React-Pro-Portfolio/static/media/skill.35a147662ab0a1d15e579690446e0258.svg",
     "index.html": "/React-Pro-Portfolio/index.html",
-    "main.f9f6e5eb.css.map": "/React-Pro-Portfolio/static/css/main.f9f6e5eb.css.map",
-    "main.09a0e683.js.map": "/React-Pro-Portfolio/static/js/main.09a0e683.js.map",
-    "64.bba8fa55.chunk.css.map": "/React-Pro-Portfolio/static/css/64.bba8fa55.chunk.css.map",
+    "main.f025ced2.css.map": "/React-Pro-Portfolio/static/css/main.f025ced2.css.map",
+    "main.6d1180e6.js.map": "/React-Pro-Portfolio/static/js/main.6d1180e6.js.map",
+    "64.8c4e3a5c.chunk.css.map": "/React-Pro-Portfolio/static/css/64.8c4e3a5c.chunk.css.map",
     "64.e09f2851.chunk.js.map": "/React-Pro-Portfolio/static/js/64.e09f2851.chunk.js.map",
-    "769.84208e66.chunk.css.map": "/React-Pro-Portfolio/static/css/769.84208e66.chunk.css.map",
+    "769.f094d44c.chunk.css.map": "/React-Pro-Portfolio/static/css/769.f094d44c.chunk.css.map",
     "769.7434306a.chunk.js.map": "/React-Pro-Portfolio/static/js/769.7434306a.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.f9f6e5eb.css",
-    "static/js/main.09a0e683.js"
+    "static/css/main.f025ced2.css",
+    "static/js/main.6d1180e6.js"
   ]
 }
