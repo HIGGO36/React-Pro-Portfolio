@@ -1,0 +1,67 @@
+@import "../../globalColor";
+
+.error-message {
+    color: red;
+    font-size: 0.8em;
+    margin-top: 4px;
+  }
+
+  .display-name-form {
+    background: $userAuthBackground;
+    text-align: left;
+    padding: 1% 2% 2% 3%;
+    font-size: 1.3rem;
+    font-weight: 550;
+    line-height: 1.5;
+    border: 4px solid $lightBoxShadowDarker;
+  }
+
+  .display-name-form .form-group {
+    margin: 5%;
+  }
+
+  .display-name-form h2 {
+    text-align: center;
+    margin: 10px 0 0 0;
+  }
+
+  .display-name-form input{
+    font-size: 1.8rem;
+    padding: 1%;
+    position: absolute;
+    right: 0;
+  }
+
+  .display-name-form #bio-input {
+    position: absolute;
+    right: 0;
+    margin: 0 2% 0 2%;
+    font-size: 1.15rem;
+    padding: 0 4% 8% 4%;
+    text-align: left;
+    text-align: -webkit-auto;
+  }
+  
+  .form-actions button {
+    padding: .8% 3%;
+    margin: 2%;
+    background: $buttonProfileBackground;
+    border: 0.15em solid $lightBoxShadowDark;
+    color: $buttonProfileColor;
+    font-weight: 500;
+    letter-spacing: .6em;
+    border-radius: 5px;
+    font-weight: 550;
+    font-family: fantasy;
+    font-size: 1rem;
+}
+  
+.form-actions button:focus, .form-actions button:hover {
+    background: $buttonProfileHoverBackground;
+    color: $spaceWhite;
+}
+
+
+.char-counter {
+    margin: 5%;
+}

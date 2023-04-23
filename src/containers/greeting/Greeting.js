@@ -3,7 +3,6 @@ import { Fade } from "react-reveal";
 import "./Greeting.scss";
 import landingPerson from "../../assets/lottie/Iron-Dev";
 import DisplayLottie from "../../components/displayLottie/DisplayLottie";
-import Button from "../../components/button/Button";
 import { illustration, greeting } from "../../portfolio";
 import StyleContext from "../../contexts/StyleContext";
 
@@ -33,9 +32,7 @@ export default function Greeting() {
               >
                 {greeting.subTitle}
               </p>
-              <div className="button-greeting-div">
-                <Button text="Contact me" href="#contact" />
-              </div>
+              <span className="logo-name">{greeting.username}</span>
             </div>
           </div>
           <div className="greeting-image-div">

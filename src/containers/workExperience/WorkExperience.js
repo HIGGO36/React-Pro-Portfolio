@@ -25,7 +25,7 @@ export default function WorkExperience() {
     return (
       <div id="experience">
 
-<div class="resumeSection">
+<div className="resumeSection">
       
       {greeting.resumeLink && (
           <Button

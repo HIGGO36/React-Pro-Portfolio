@@ -2,7 +2,7 @@
 
 .main {
   width: 90%;
-  padding: 20px 10px;
+  padding: 10px;
   margin: 0px auto;
   margin-top: 1rem;
 }
@@ -55,6 +55,15 @@
   animation-name: wave;
   display: inline-block;
   transform-origin: 70% 70%;
+}
+
+
+.header .logo-name {
+  font-family: "Agustina Regular";
+  font-weight: bold;
+  font-variant-ligatures: no-common-ligatures;
+  -webkit-font-variant-ligatures: no-common-ligatures;
+  padding: 0 10px;
 }
 
 @keyframes wave {

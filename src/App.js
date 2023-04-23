@@ -1,33 +1,73 @@
-import React, { useContext, useState, useEffect, useRef, useCallback } from 'react';
-import 'firebase/compat/auth';
-import StyledFirebaseAuth from 'react-firebaseui/StyledFirebaseAuth';
-import Main from './containers/Main';
-import { AuthProvider, AuthContext, useUser, useToken, useFirebase } from './contexts/AuthProvider/AuthProvider';
-import './App.scss';
+import React, {
+  useContext,
+  useState,
+  useEffect,
+  useRef,
+  useCallback,
+} from "react";
+import "firebase/compat/auth";
+import StyledFirebaseAuth from "react-firebaseui/StyledFirebaseAuth";
+import {
+  AuthProvider,
+  AuthContext,
+  useUser,
+  useToken,
+  useFirebase,
+  useFirestore,
+} from "./contexts/AuthProvider/AuthProvider";
+import UserProfileForm from "./components/userProfile/UserProfileForm";
+import Main from "./containers/Main";
+import "./App.scss";
 
 function AppContent() {
   const { loading } = useContext(AuthContext);
   const user = useUser();
   const token = useToken();
   const myFirebase = useFirebase();
+  const firestore = useFirestore();
   const [showUserAuth, setShowUserAuth] = useState(false);
+  const [showUserProfileForm, setShowUserProfileForm] = useState(false);
   const firebaseUserAuthRef = useRef(null);
-
-    // Note: the data integrity and persistancy is maintained by having one single point in the context/authProvider.js
-    // where the AuthProvider component  creates a context provider that allows all child components to access the authentication state of the user. 
-    // The component sets up the initial state for loading, user, and token, and uses the useState hook to update the state when there is a change in the authentication state of the user. 
+  const [firebaseUiReady, setFirebaseUiReady] = useState(false);
+  const [userData, setUserData] = useState({});
 
   const uiConfig = {
-    signInFlow: 'popup',
+    signInFlow: "popup",
     signInSuccessUrl: window.location.href,
     signInOptions: [
       myFirebase.auth.GoogleAuthProvider.PROVIDER_ID,
       myFirebase.auth.EmailAuthProvider.PROVIDER_ID,
     ],
-    tosUrl: 'https://www.google.com/policies/terms/',
-    privacyPolicyUrl: 'https://www.google.com/policies/privacy/',
+    tosUrl: "https://www.google.com/policies/terms/",
+    privacyPolicyUrl: "https://www.google.com/policies/privacy/",
     callbacks: {
-      signInSuccessWithAuthResult: (authResult, redirectUrl) => {
+      signInSuccessWithAuthResult: async (authResult, redirectUrl) => {
+        const isNewUser = authResult.additionalUserInfo.isNewUser;
+        const user = authResult.user;
+        const userRef = firestore.collection("users").doc(user.uid);
+
+        if (isNewUser) {
+          await userRef.set({
+            email: user.email,
+            displayName: user.displayName,
+            firstName: "",
+            lastName: "",
+            phoneNumber: "",
+            address: "",
+            bio: "",
+            firstVisit: new Date(),
+            lastLogin: new Date(),
+          });
+        } else {
+          await userRef.set(
+            {
+              displayName: user.displayName,
+              lastLogin: new Date(),
+            },
+            { merge: true }
+          );
+        }
+
         setShowUserAuth(false);
         return false; // Prevent redirect after sign-in.
       },
@@ -36,25 +76,80 @@ function AppContent() {
 
   const handleSignIn = () => {
     setShowUserAuth(true);
-
+    setShowUserProfileForm(false);
   };
 
   const handleClose = () => {
     setShowUserAuth(false);
+    setShowUserProfileForm(false);
   };
 
   const handleSignOut = async () => {
     try {
       await myFirebase.auth().signOut();
-      window.location.href = 'https://higgo36.github.io/React-Pro-Portfolio/';
+      setShowUserProfileForm(false);
+      window.location.href = "https://higgo36.github.io/React-Pro-Portfolio/";
     } catch (error) {
       console.error(error);
     }
   };
 
+  const handleUpdateUserProfile = async (
+    newDisplayName,
+    firstName,
+    lastName,
+    email,
+    phoneNumber,
+    address,
+    bio
+  ) => {
+    try {
+      await user.updateProfile({ displayName: newDisplayName });
+
+      // Check if the user document exists
+      const userRef = firestore.collection("users").doc(user.uid);
+      const userDoc = await userRef.get();
+
+      // If the user document doesn't exist, create it with the initial data
+      if (!userDoc.exists) {
+        await userRef.set({
+          email,
+          displayName: newDisplayName,
+          firstName,
+          lastName,
+          phoneNumber,
+          address,
+          bio,
+          firstVisit: new Date(),
+          lastLogin: new Date(),
+        });
+      } else {
+        // Otherwise, just update the display name and other fields
+        await userRef.set(
+          {
+            displayName: newDisplayName,
+            firstName,
+            lastName,
+            phoneNumber,
+            address,
+            bio,
+          },
+
+          { merge: true }
+        );
+      }
+
+      setShowUserProfileForm(false);
+    } catch (error) {
+      console.error(error);
+    }
+  };
 
   const handleClickOutside = useCallback((event) => {
-    if (firebaseUserAuthRef.current && !firebaseUserAuthRef.current.contains(event.target)) {
+    if (
+      firebaseUserAuthRef.current &&
+      !firebaseUserAuthRef.current.contains(event.target)
+    ) {
       handleClose();
     }
   }, []);
@@ -65,11 +160,28 @@ function AppContent() {
     } else {
       document.removeEventListener("mousedown", handleClickOutside);
     }
-
     return () => {
       document.removeEventListener("mousedown", handleClickOutside);
     };
   }, [showUserAuth, handleClickOutside]);
+
+   // Fetch additional user data from Firestore when the user object changes
+   useEffect(() => {
+    if (user) {
+      const userRef = firestore.collection("users").doc(user.uid);
+      const unsubscribe = userRef.onSnapshot((doc) => {
+        if (doc.exists) {
+          setUserData(doc.data());
+        }
+      });
+  
+      return () => {
+        unsubscribe();
+      };
+    }
+  }, [user, firestore]);
+  
+
 
   return (
     <div>
@@ -79,19 +191,23 @@ function AppContent() {
             {user ? (
               <>
                 <h1 className="successful-auth-welcome">
-                  Access approved:
-                  <span className="firebase-email">{user.email}</span>
+                  Welcome, {user.displayName}
                 </h1>
-                <button className="glowing-btn" onClick={handleSignOut}>
-                  <span className="glowing-txt">
-                    SIGN<span className="faulty-letter">OUT</span>
-                  </span>
+                <button className="signOut-btn" onClick={handleSignOut}>
+                  <span className="signOut-txt">
+                    SIGN-OUT</span>       
+                </button>
+                <button
+                  className="userProfile-btn"
+                  onClick={() => setShowUserProfileForm(true)} >
+                  <span className="userProfile-txt">
+                    Profile</span>
                 </button>
               </>
             ) : (
               <>
                 <h1 className="successful-auth-welcome">
-                  Get Full Access:
+                  Welcome to my React Web App Portfolio
                 </h1>
                 <button className="glowing-btn" onClick={handleSignIn}>
                   <span className="glowing-txt">
@@ -104,27 +220,55 @@ function AppContent() {
           {showUserAuth && (
             <div ref={firebaseUserAuthRef} className="firebase-user-auth">
               <div className="firebase-user-auth-header">
-                        <h1 className="firebase-user-auth-h1">Get Full Access:</h1>
-        <button className="auth-close-btn" onClick={handleClose}>
-        <span className="auth-close-icon">×</span>
-        </button>
-        </div>
-        <StyledFirebaseAuth uiConfig={uiConfig} firebaseAuth={myFirebase.auth()} />
-        </div>
-        )}
-        <Main user={user} token={token} handleSignIn={handleSignIn} />
+                <h1 className="firebase-user-auth-h1">Get Full Access:</h1>
+                <button className="auth-close-btn" onClick={handleClose}>
+                  <span className="auth-close-icon">×</span>
+                </button>
+              </div>
+              <StyledFirebaseAuth
+                uiConfig={uiConfig}
+                firebaseAuth={myFirebase.auth()}
+                uiCallback={(ui) => {
+                  if (ui.isPendingRedirect()) {
+                    // The widget is still loading
+                    setFirebaseUiReady(false);
+                  } else {
+                    // The widget is fully loaded
+                    setFirebaseUiReady(true);
+                  }
+                }}
+                // Wait until the widget is fully loaded before displaying it
+                style={{ display: firebaseUiReady ? "block" : "none" }}
+              />
+            </div>
+          )}
+   {showUserProfileForm && user && (
+  <UserProfileForm
+    displayName={user.displayName}
+    firstName={userData.firstName || ""}
+    lastName={userData.lastName || ""}
+    email={user.email}
+    phoneNumber={userData.phoneNumber || ""}
+    address={userData.address || ""}
+    bio={userData.bio || ""}
+    onSave={handleUpdateUserProfile}
+    onCancel={() => setShowUserProfileForm(false)}
+  />
+)}
+
+          <Main user={user} token={token} handleSignIn={handleSignIn} />
         </>
-        )}
-        </div>
-        );
-        }
+      )}
+    </div>
+  );
+}
 
-        function App() {
-        return (
-        <AuthProvider>
-        <AppContent />
-        </AuthProvider>
-        );
-        }
+function App() {
+  return (
+    <AuthProvider>
+      <AppContent />
+    </AuthProvider>
+  );
+}
 
-        export default App;
+export default App;

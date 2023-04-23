@@ -23,7 +23,6 @@
 .header {
   background-color: $lightBackground1;
   max-width: 100%;
-  padding: 15px 20px;
   margin: 0px auto;
 }
 
@@ -62,12 +61,17 @@
   text-align: center;
 }
 
-.header .logo-name {
+#greeting .logo-name {
   font-family: "Agustina Regular";
   font-weight: bold;
   font-variant-ligatures: no-common-ligatures;
   -webkit-font-variant-ligatures: no-common-ligatures;
   padding: 0 10px;
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  margin: 2%;
+  
 }
 
 /* menu */
@@ -159,6 +163,11 @@
   top: 0;
 }
 
+
+
+
+
+
 /* 48em = 768px */
 
 @media (min-width: 48em) {
@@ -207,5 +216,3 @@
     font-size: 1em;
   }
 }
-
-

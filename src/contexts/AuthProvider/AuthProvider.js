@@ -1,5 +1,5 @@
 import React, { createContext, useState, useEffect, useContext } from 'react';
-import myFirebase from '../../components/myFirebase/myFirebase';
+import { myFirebase, db } from '../../components/myFirebase/myFirebase'; // Update this line
 
 // The AuthProvider component sets up a context provider, which provides the authentication state to all the child components using the useContext hook.
 export const AuthContext = createContext();
@@ -33,7 +33,7 @@ export const AuthProvider = ({ children }) => {
   // The unsubscribe function is returned from the useEffect hook, which will be called whenever the component unmounts, and it will detach the listener from the Firebase authentication state change event. This will prevent memory leaks and ensure that the listener is only active when the component is mounted.
 
   return (
-    <AuthContext.Provider value={{ loading, user, token, setUser, myFirebase }}>
+    <AuthContext.Provider value={{ loading, user, token, setUser, myFirebase, db }}>
       {children}
     </AuthContext.Provider>
   );
@@ -43,3 +43,5 @@ export const AuthProvider = ({ children }) => {
 export const useUser = () => useContext(AuthContext).user;
 export const useToken = () => useContext(AuthContext).token;
 export const useFirebase = () => useContext(AuthContext).myFirebase;
+// new hook to access Firestore
+export const useFirestore = () => useContext(AuthContext).db;

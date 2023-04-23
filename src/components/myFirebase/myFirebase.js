@@ -1,4 +1,5 @@
 import firebase from 'firebase/compat/app';
+import 'firebase/compat/firestore'; 
 
 // loading the environment variables from the .env file into the process.env object.
 const firebaseConfig = {
@@ -20,4 +21,9 @@ if (!firebase.apps.length) {
 
 // export myFirebase as the initialized Firebase instance
 const myFirebase = firebase;
-export default myFirebase;
+
+// adding firestore firebase realtime database
+const db = firebase.firestore(); 
+
+// exporting both myFirebase and the db objects
+export { myFirebase, db };
