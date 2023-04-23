@@ -3,6 +3,7 @@
 /*React-headroom*/
 .headroom-wrapper {
   max-height: 100px;
+  margin: 0;
 }
 
 /* header */
@@ -28,9 +29,10 @@
 
 .header ul {
   margin: 0;
-  padding: 0;
+  padding: 0px 1% 0px 1%;
   list-style: none;
   overflow: hidden;
+  font-weight: 600;
 }
 
 .grey-color {
@@ -198,6 +200,18 @@
   .header li a {
     padding: 8px;
   }
+}
+
+@media (max-width: 780px) {
+
+  a#contact {
+    margin-bottom: 5%;
+  }
+  
+  #headerComp {
+    margin-left: 2%;
+  }
+
 }
 
 @media (max-width: 480px) {

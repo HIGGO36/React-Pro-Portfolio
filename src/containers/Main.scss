@@ -76,7 +76,7 @@ body {
   height: 100vh;
   min-width: 280px;
   background: $darkBackground;
-  padding: 1% 5% 5% 5%;
+  padding: 2.5% 5% 5% 5%;
   color: $spaceWhite;
   text-align: center;
   overflow-wrap: break-word;
@@ -158,18 +158,43 @@ h3 {
   text-align: center;
 }
 
-@media (min-width: 1080px) {
-
-  .firebase-user-auth-header .auth-close-btn {
-     top: 23%
-  }
+// BUTTONS 
+.signOut-btn, .userProfile-btn {
+  position: absolute;
+  padding: .8% 3%;
+  margin: 1% 2% 2% 2%;
+  background: $buttonProfileBackground;
+  border: 0.15em solid $lightBoxShadowDark;
+  color: $buttonProfileColor;
+  font-weight: 500;
+  letter-spacing: .6em;
+  border-radius: 5px;
+  font-weight: 550;
+  font-size: 1.15rem;
 }
+
+.signOut-btn:hover, .userProfile-btn:hover, .signOut-btn:focus, .userProfile-btn:focus {
+ background: $buttonProfileHoverBackground;
+ color: $spaceWhite;
+}
+
+.signOut-btn {
+top: 0;
+left: 0;
+}
+
+.userProfile-btn {
+top:0;
+right:0;
+}
+
 
 @media only screen and (max-width: 800px) {
 
  #firebaseAuthUi .signOut-btn, #firebaseAuthUi .userProfile-btn {
     position: relative;
     margin: 1% 12% 2% 12%;
+    font-size: 0.8rem;
 }
 }
 
@@ -191,7 +216,7 @@ h3 {
   }
 
   .firebase-user-auth-header .auth-close-btn {
-    top: 18%;
+    top: 20%;
   }
   .user-notice {
     font-size: .85rem;
@@ -207,38 +232,6 @@ h3 {
   .firebase-user-auth-h1 {
     font-size: 1rem;
   }
-}
-
-
-// BUTTONS 
-.signOut-btn, .userProfile-btn {
-    position: absolute;
-    padding: .8% 3%;
-    margin: 1% 2% 2% 2%;
-    background: $buttonProfileBackground;
-    border: 0.15em solid $lightBoxShadowDark;
-    color: $buttonProfileColor;
-    font-weight: 500;
-    letter-spacing: .6em;
-    border-radius: 5px;
-    font-weight: 550;
-    font-family: fantasy;
-    font-size: 1.15rem;
-}
-
-.signOut-btn:hover, .userProfile-btn:hover, .signOut-btn:focus, .userProfile-btn:focus {
-   background: $buttonProfileHoverBackground;
-   color: $spaceWhite;
-}
-
-.signOut-btn {
-  top: 0;
-  left: 0;
-}
-
-.userProfile-btn {
-  top:0;
-  right:0;
 }
 
 

@@ -22,8 +22,8 @@
 
 
 .prof-title {
-  margin: 0;
-  font-size: 40px;
+  margin: 0 auto;
+  font-size: 1.6rem;
   font-weight: 600;
   width: 80%;
 }
@@ -92,11 +92,10 @@
   }
 
   .profile-image {
-    margin-left: auto;
-    margin-right: auto;
-    width: 100%;
-    max-width: 250px;
+    max-width: 60%;
     height: auto;
+    display: block;
+    margin: 0 auto;
   }
 
   .profile-image:hover {
@@ -106,7 +105,14 @@
 
   .prof-title {
     padding-bottom: 1rem;
-    font-size: 32px;
-    text-align: center;
+    font-size: 1.4rem;
   }
 }
+
+
+@media (max-width: 325px) {
+  .repo-card-div {
+    max-width: 80%;
+  }
+}
+

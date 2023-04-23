@@ -61,7 +61,7 @@
   color: $lightBackground3;
   vertical-align: middle;
   align-items: center;
-  border-radius: 4px;
+  border-radius: 5px;
   display: inline-flex;
   font-size: 0.75rem;
   height: 2em;
@@ -75,4 +75,31 @@
 }
 span.certificate-tag:hover {
   background: $buttonHover;
+}
+
+@media only screen and (max-width: 325px) {
+
+  .certificate-card-footer span.certificate-tag {
+    width: 80%;
+    padding: 5% 25%;
+    font-size: 1.1rem;
+  }
+
+}
+
+
+@media only screen and (max-width: 325px) {
+  .certificate-card {
+    max-width: 80%;
+  }
+
+  .card-title {
+    font-size: 1.2rem;
+  }
+
+  .card-subtitle {
+
+   font-size: 0.8rem;
+   list-height: 1.2;
+  }
 }
