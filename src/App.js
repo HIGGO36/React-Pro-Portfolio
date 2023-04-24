@@ -30,18 +30,34 @@ function AppContent() {
   const firebaseUserAuthRef = useRef(null);
   const [firebaseUiReady, setFirebaseUiReady] = useState(false);
   const [userData, setUserData] = useState({});
+  const provider = new myFirebase.auth.GoogleAuthProvider();
+
 
   const uiConfig = {
     signInFlow: "popup",
     signInSuccessUrl: window.location.href,
     signInOptions: [
-      myFirebase.auth.GoogleAuthProvider.PROVIDER_ID,
-      myFirebase.auth.EmailAuthProvider.PROVIDER_ID,
+      {
+        provider: myFirebase.auth.GoogleAuthProvider.PROVIDER_ID,
+        // Add a custom auth callback for Google sign-in
+        customAuthParameters: {
+          prompt: 'select_account',
+        },
+      },
+      {
+        provider: myFirebase.auth.EmailAuthProvider.PROVIDER_ID,
+        // Add a custom auth callback for Email sign-in
+        customAuthParameters: {
+          showEmailAuthForm: true,
+        },
+      },
     ],
     tosUrl: "https://www.google.com/policies/terms/",
     privacyPolicyUrl: "https://www.google.com/policies/privacy/",
     callbacks: {
       signInSuccessWithAuthResult: async (authResult, redirectUrl) => {
+
+
         const isNewUser = authResult.additionalUserInfo.isNewUser;
         const user = authResult.user;
         const userRef = firestore.collection("users").doc(user.uid);
@@ -68,22 +84,42 @@ function AppContent() {
           );
         }
 
-        setShowUserAuth(false);
-        return false; // Prevent redirect after sign-in.
-      },
+         // Check if the email auth form should be displayed
+      const providerId = authResult.additionalUserInfo.providerId;
+      const showEmailAuthForm = !user && providerId !== myFirebase.auth.GoogleAuthProvider.PROVIDER_ID;
+
+      // Only show the email auth form if the user chose the email auth option and showEmailAuthForm is true
+      if (showEmailAuthForm) {
+      setShowUserProfileForm(true);
+      }
+
+      setShowUserAuth(false);
+      return false; // Prevent redirect after sign-in.
     },
+  },
+};
+
+  const handleSignIn = async () => {
+    try {
+      const result = await myFirebase.auth().signInWithPopup(provider);
+      const user = result.user;
+      if (user) {
+        setShowUserAuth(false);
+      }
+    } catch (error) {
+      console.error(error);
+    }
   };
 
-  const handleSignIn = () => {
-    setShowUserAuth(true);
-    setShowUserProfileForm(false);
+  const handleClose = async () => {
+    try {
+      setShowUserAuth(false);
+      setShowUserProfileForm(false);
+    } catch (error) {
+      console.error(error);
+    }
   };
-
-  const handleClose = () => {
-    setShowUserAuth(false);
-    setShowUserProfileForm(false);
-  };
-
+  
   const handleSignOut = async () => {
     try {
       await myFirebase.auth().signOut();
@@ -180,7 +216,6 @@ function AppContent() {
       };
     }
   }, [user, firestore]);
-  
 
 
   return (
@@ -217,31 +252,34 @@ function AppContent() {
               </>
             )}
           </div>
-          {showUserAuth && (
-            <div ref={firebaseUserAuthRef} className="firebase-user-auth">
-              <div className="firebase-user-auth-header">
-                <h1 className="firebase-user-auth-h1">Get Full Access:</h1>
-                <button className="auth-close-btn" onClick={handleClose}>
-                  <span className="auth-close-icon">×</span>
-                </button>
-              </div>
-              <StyledFirebaseAuth
-                uiConfig={uiConfig}
-                firebaseAuth={myFirebase.auth()}
-                uiCallback={(ui) => {
-                  if (ui.isPendingRedirect()) {
-                    // The widget is still loading
-                    setFirebaseUiReady(false);
-                  } else {
-                    // The widget is fully loaded
-                    setFirebaseUiReady(true);
-                  }
-                }}
-                // Wait until the widget is fully loaded before displaying it
-                style={{ display: firebaseUiReady ? "block" : "none" }}
-              />
-            </div>
-          )}
+          {showUserAuth && !showUserProfileForm && (
+  <div ref={firebaseUserAuthRef} className="firebase-user-auth">
+    <div className="firebase-user-auth-header">
+      <h1 className="firebase-user-auth-h1">Get Full Access:</h1>
+      <button className="auth-close-btn" onClick={handleClose}>
+        <span className="auth-close-icon">×</span>
+      </button>
+    </div>
+    <StyledFirebaseAuth
+      uiConfig={uiConfig}
+      firebaseAuth={myFirebase.auth()}
+      uiCallback={(ui) => {
+        if (ui.isPendingRedirect()) {
+          // The widget is still loading
+          setFirebaseUiReady(false);
+        } else {
+          // The widget is fully loaded
+          setFirebaseUiReady(true);
+        }
+      }}
+      // Wait until the widget is fully loaded before displaying it
+      style={{ display: firebaseUiReady ? "block" : "none" }}
+    />
+  </div>
+)}
+
+
+
    {showUserProfileForm && user && (
   <UserProfileForm
     displayName={user.displayName}
