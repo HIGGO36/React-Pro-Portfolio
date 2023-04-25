@@ -38,7 +38,7 @@
     right: 0;
     margin: 2%;
     font-size: 1.15rem;
-    padding: 0 8% 10% 8%;
+    padding: 2.8% 7%;
     text-align: left;
     text-align: -webkit-auto;
     border: 1.4px solid $lightBoxShadowDarker;
@@ -70,4 +70,13 @@
 
 .char-counter {
     margin: 5%;
+}
+
+@media (max-width: 600px) {
+
+  .display-name-form .form-group label {
+    display: block;
+  }
+
+
 }
