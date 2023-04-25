@@ -234,7 +234,7 @@ function AppContent() {
                 </button>
                 <button
                   className="userProfile-btn"
-                  onClick={() => setShowUserProfileForm(true)} >
+                  onClick={() => setShowUserProfileForm(!showUserProfileForm)} >
                   <span className="userProfile-txt">
                     Profile</span>
                 </button>
