@@ -7,10 +7,11 @@
   }
 
   .display-name-form {
+    display: flex;
     background: $userAuthBackground;
     text-align: left;
     padding: 1% 2% 2% 3%;
-    font-size: 1.3rem;
+    font-size: 1.6rem;
     font-weight: 550;
     line-height: 1.5;
     border: 4px solid $lightBoxShadowDarker;
@@ -20,9 +21,8 @@
     margin: 5%;
   }
 
-  .display-name-form h2 {
-    text-align: center;
-    margin: 10px 0 0 0;
+  .display-name-form .form-group label {
+    font-weight: 600;
   }
 
   .display-name-form input{
@@ -30,16 +30,18 @@
     padding: 1%;
     position: absolute;
     right: 0;
+    border: 1.4px solid $lightBoxShadowDarker;
   }
 
   .display-name-form #bio-input {
     position: absolute;
     right: 0;
-    margin: 0 2% 0 2%;
+    margin: 2%;
     font-size: 1.15rem;
     padding: 0 8% 10% 8%;
     text-align: left;
     text-align: -webkit-auto;
+    border: 1.4px solid $lightBoxShadowDarker;
   }
 
   .form-actions {

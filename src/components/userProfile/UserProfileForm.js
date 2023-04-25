@@ -68,7 +68,6 @@ const phoneNumberRegex = /^(\+\d{1,2}\s)?\(?\d{1,4}\)?[\s.-]\d{1,4}[\s.-]\d{1,4}
 
   return (
     <div className="display-name-form">
-      <h2>Manage your Profile</h2>
       <form onSubmit={handleSubmit}>
         <div className="form-group">
           <label htmlFor="display-name-input">Display Name:</label>
