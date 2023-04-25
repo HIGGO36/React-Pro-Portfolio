@@ -55,17 +55,17 @@ const socialMediaLinks = {
 const skillsSection = {
   title: "My Developer Skills",
   subTitle:
-    "- My past professional work has been primarly as a Front End developer, with some of my core abilities listed below.",
+    "💡 Currently, I am focused on learning different React frameworks that are using Functional programming and Modular Design.",
   skills: [
     emoji(
-      "🌞 I have a wide range of abilities with designing and developing web sites, interactice components and other types of assets."
+      "🛠️ I have a wide range of abilities in planning, designing and building web applications, interactice components and other types of assets."
     ),
 
     emoji(
-      "🌞 I focus on using a mobile-first approach while keeping an eye on accessiblity and performance to deliver top notch user experiences."
+      "🤔 I focus on using a mobile-first approach while keeping an eye on accessiblity and performance to deliver top notch user experiences."
     ),
     emoji(
-      "🌞 Currently learning more about Progressive Web Applications ( PWA ). Web Services and the Integration of third party services such as AWS."
+      "🥳 Most recent success would have to be setting up a functional User Authentication and User Profile creation options using Firebase Auth and a Firestore Realtime Database. "
     )
   ],
 
@@ -88,10 +88,6 @@ https://fontawesome.com/icons?d=gallery */
     {
       skillName: "JavaScript",
       fontAwesomeClassname: "fab fa-js"
-    },
-    {
-      skillName: "reactjs",
-      fontAwesomeClassname: "fab fa-react"
     },
     {
       skillName: "nodejs",
@@ -118,6 +114,10 @@ https://fontawesome.com/icons?d=gallery */
       fontAwesomeClassname: "fab fa-github"
     },
     {
+      skillName: "codepen",
+      fontAwesomeClassname: "fab fa-codepen"
+    },
+    {
       skillName: "terminal",
       fontAwesomeClassname: "fas fa-terminal"
     },
@@ -128,11 +128,8 @@ https://fontawesome.com/icons?d=gallery */
     {
       skillName: "firefox",
       fontAwesomeClassname: "fab fa-firefox-browser"
-    },
-    {
-      skillName: "codepen",
-      fontAwesomeClassname: "fab fa-codepen"
     }
+  
   ],
   display: true // Set false to hide this section, defaults to true
 };
@@ -167,27 +164,43 @@ const techStack = {
   viewSkillBars: true, //Set it to true to show Proficiency Section
   experience: [
     {
-      Stack: "Frontend Development", //Insert stack or technology you have experience in
-      progressPercentage: "85%" //Insert relative proficiency in percentage
-    },
-    {
-      Stack: "Responsive Web Design", //Insert stack or technology you have experience in
+      Stack: "Web Development", //Insert stack or technology you have experience in
       progressPercentage: "90%" //Insert relative proficiency in percentage
     },
     {
-      Stack: "Interactive User Experiences",
-      progressPercentage: "85%"
+      Stack: "Responsive Mobile-First Design", //Insert stack or technology you have experience in
+      progressPercentage: "90%" //Insert relative proficiency in percentage
     },
     {
-      Stack: "Data Visualization",
+      Stack: "React Frameworks",
       progressPercentage: "75%"
+    },
+    {
+      Stack: "Functional Programming",
+      progressPercentage: "80%"
+    },
+    {
+      Stack: "Modular Design",
+      progressPercentage: "80%"
+    },
+    {
+      Stack: "React Hooks",
+      progressPercentage: "90%"
+    },
+    {
+      Stack: "Bootstrap",
+      progressPercentage: "90%"
     },
     {
       Stack: "Web Accessibility",
       progressPercentage: "90%"
     },
     {
-      Stack: "Team Work & Problem Solving",
+      Stack: "Problem Solving",
+      progressPercentage: "95%"
+    },
+    {
+      Stack: "Team Work",
       progressPercentage: "95%"
     }
   ],

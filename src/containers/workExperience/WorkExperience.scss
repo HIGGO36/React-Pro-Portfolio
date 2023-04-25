@@ -80,6 +80,14 @@
     font-size: 30px;
     text-align: center;
   }
+
+  #private-section button {
+    font-size: 1rem;
+  }
+
+  .private-text {
+    font-size: 1rem;
+  }
 }
 
 
@@ -87,6 +95,10 @@
 
   .experience-cards-div {
     display: block;
+  }
+
+  #private-section button {
+    font-size: 0.8rem;
   }
 
 }
