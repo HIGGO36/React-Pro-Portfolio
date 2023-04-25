@@ -19,7 +19,13 @@
 
   .display-name-form .form-group {
     margin: 5%;
+    width: 100%;
   }
+
+  .display-name-form .form-group label[for="phone-number-input"] {
+   width: 150%;
+  }
+  
 
   .display-name-form .form-group label {
     font-weight: 600;
@@ -36,9 +42,9 @@
   .display-name-form #bio-input {
     position: absolute;
     right: 0;
-    margin: 2%;
+    margin: 2% 6%;
     font-size: 1.15rem;
-    padding: 2.8% 7%;
+    padding: 2.8% 2%;
     text-align: left;
     text-align: -webkit-auto;
     border: 1.4px solid $lightBoxShadowDarker;
