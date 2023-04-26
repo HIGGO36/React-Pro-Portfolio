@@ -8,21 +8,28 @@
 
   .display-name-form {
     display: flex;
-    // background: $userAuthBackground;
-
     text-align: left;
-    padding: 1% 2% 2% 3%;
+    padding: 2% 4%;
     font-size: 1.6rem;
     font-weight: 550;
     line-height: 1.5;
-    // border: 4px solid $lightBoxShadowDarker;
-
     position: relative;
     background-color: #E2E4EA;
-    box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
-    border-radius: 5px;
+    // box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+    // border-radius: 10px;
     overflow: hidden;
+    border: 1px solid #555;
+    box-shadow: inset 0px 0px 10px #555;
+  }
+  
+  
+  .display-name-form:hover {
+  border-color: #999;
+  }
 
+  .display-name-form:focus-within {
+    border-color: #00bfff;
+    box-shadow: inset 0px 0px 10px #00bfff;
   }
 
   .display-name-form:before {
@@ -68,6 +75,7 @@
   }
 
   .display-name-form input{
+    width: 50%;
     font-size: 1.8rem;
     padding: 1%;
     position: absolute;
@@ -78,12 +86,28 @@
   .display-name-form #bio-input {
     position: absolute;
     right: 0;
-    margin: 2% 6%;
+    margin: 2% 12.45%;
     font-size: 1.15rem;
-    padding: 2.8% 2%;
+    padding: .5% 0 .5% 2%;
     text-align: left;
     text-align: -webkit-auto;
     border: 1.4px solid $lightBoxShadowDarker;
+    width: 420px;
+    height: 100px;
+  }
+
+  .display-name-form #bio-input, .display-name-form input {
+    border: 1px solid #555;
+    box-shadow: inset 0px 0px 5px #555;
+  }
+
+  .display-name-form #bio-input:hover, .display-name-form input:hover {
+    border-color: #999;
+  } 
+
+  .display-name-form #bio-input:focus, .display-name-form input:focus {
+  border-color: #00bfff;
+  box-shadow: inset 0px 0px 5px #00bfff;
   }
 
   .form-actions {
@@ -114,11 +138,94 @@
     margin: 5%;
 }
 
+@media (max-width: 900px) {
+
+  .display-name-form #bio-input {
+    width: 325px;
+    height: 90px;
+  }
+}
+
+@media (max-with: 750px) {
+  .display-name-form #bio-input {
+    width: 280px;
+    height: 85px;
+  }
+  
+}
+
+@media (max-width: 700px) {
+  .display-name-form #bio-input {
+  width: 250px;
+  height: 80px;
+  }
+  .display-name-form .form-group {
+    margin: 2% 0px 0px 30%;
+  }
+}
+
 @media (max-width: 600px) {
+  .display-name-form .form-group {
+    margin: 2% 0px 0px 20%;
+  }
 
   .display-name-form .form-group label {
     display: block;
+    text-align: center;
   }
 
+  .display-name-form input {
+    width: 100%;
+  }
+  .display-name-form .form-group label[for=phone-number-input] {
+    width: 100%;
+  }
+  .display-name-form #bio-input, .display-name-form input {
+    text-align: center;
+    height: 79px;
+  }
+  .display-name-form #bio-input {
+    margin: 4% 28% 0 15%;
+  }
+  .char-counter {
+    margin: 0 43% 15% 43%;
+  }
+  .form-actions {
+    text-align: center;
+  }
+
+  .form-actions button[type=submit] {
+    position: absolute;
+    left: 0;
+    bottom: 8px;
+  }
+  .form-actions button[type=submit] + button {
+    position: absolute;
+    right: 0;
+    bottom: 8px;
+  }
+
+  .form-actions button {
+    margin: 8% 0 3% 4%;
+    padding: 2% 10%;
+  }
+}
+
+@media (max-width: 500px) {
+
+  .display-name-form .form-group {
+    margin: 2% 0px 0px 8%;
+  }
+}
+
+@media (max-width: 400px) {
+
+  .display-name-form .form-group {
+    margin: 2% 0px;
+  }
+
+  .form-actions button[type=submit], .form-actions button[type=submit] + button {
+    position: relative;
+  }
 
 }
