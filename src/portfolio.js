@@ -213,16 +213,16 @@ const workExperiences = {
   display: true, //Set it to true to show workExperiences Section
   experience: [
     {
-      role: "Co-Founder & Managing Member",
-      company: "Nftradables, LLC.",
+      role: "Collaborator",
+      company: "Entrepreneurial Project",
       companylogo: require("./assets/images/nftelite-tradables-logo-yellow.jpeg"),
       date: "May 2022 – January 2023",
-      desc: "Co-Founded a small organization focused on web 3.0 non-fungible token technologies for usage in launching a new project on the Ethereum blockchain.",
+      desc: "This venture focused on non-fungible token technologies for Ethereum blockchain, our team  began developing a decentralized application (DAPP) with a simple frontend that allowed for DeFi wallet connectivity and other key features. Additionally, we worked on the development of a smart contract, but due to unforeseen challenges, the project was not completed before the end of my tenure.",
       descBullets: [
-        "Gained advanced web 3.0 technical and overall ecosystems knowledge",
-        "Created a business plan, short-term project goals that we managed using agile scrum methodology.",
-        "Hired an international contracted employee to help with blockchain smart contracts.",
-        "Worked with our team to plan, design and develop a beta version of our nft marketplace project."
+        "Worked on venture focused on non-fungible token technologies for Ethereum blockchain projects.",
+        "Developed business plans and managed project goals using Agile Scrum methodology.",
+        "Hired and managed an international contracted employee to help with blockchain smart contracts.",
+        "Learned valuable lessons on market volatility, project risk assessment, and contingency planning."
       ]
     },
     {
@@ -232,12 +232,9 @@ const workExperiences = {
       date: "Feb 2019 – Dec 2019",
       desc: "One of three primary developers in the creation and initial deployment for second version of their universal design system supporting multiple applications under the CBP umbrella.",
       descBullets: [
-        "Primarily used tools like: Github, Npm, Yarn, Travis CI, Gatsby, Webpack4",
-        "Set up an intermediate-level Webpack environment for a medium-scale web application writing mostly in JSON.",
-        "Configured custom loaders for handling CSS and image assets.",
-        "Overcame challenges with integrating Webpack into the project’s testing framework, asynchronous loading and compatibility issues with multiple web browsers.",
-        "Wrote “Build Scripts” in some of their package.json files used in the CBP Theme application that help with automating tasks like compiling source code, bundling files, and optimizing assets for deployment.",
-        "Resulted in about a 50% reduction in build times and a more efficient overall codebase."
+        "Played a key role in the development and deployment of a universal design system for multiple applications under the CBP umbrella.",
+        "Utilized tools like GitHub, Npm, Yarn, Travis CI, Gatsby, Webpack4 to create a more efficient codebase, resulting in a 50% reduction in build times.",
+        "Collaborated in an Agile Scrum team to develop user stories and ensure they met acceptance criteria."
       ]
     },
     {
@@ -247,10 +244,8 @@ const workExperiences = {
       date: "Oct 2018 – June 2019",
       desc: "Modernized an older PHP website called 'Old-Friends.co's user interface using JavaScript, CSS and HTML, while being required to keep a very similar theme while also leaving the original framework in place.",
       descBullets: [
-        "Overhauled the website’s user interface by creating from scratch new global web elements such as navigation, layout, and interactive web forms.",
-        "Built a new and intuitive navigation system that streamlined user journeys and improved engagement metrics by over 100%.",
-        "Designed and developed a responsive mobile friendly layout that adapts seamlessly to different screen sizes, ensuring a consistent user experience across all devices.",
-        "Implemented interactive web forms to enhance user engagement, enabling visitors to easily submit inquiries, feedback, open and close account requests, and other types of requests through the website."
+        "Modernized an older PHP website user interface, leading to improved engagement metrics by over 100%.",
+        "Designed and developed a responsive mobile-friendly layout that adapts seamlessly to different screen sizes."
       ]
     },
     {
@@ -260,10 +255,9 @@ const workExperiences = {
       date: "April 2017 – September 2018",
       desc: "Supported multiple web service teams front-end web development client requests for the FDIC.gov website.",
       descBullets: [
-        "Designed, developed, rapidly prototyped, tested and deployed for production a new global user-interface web elements for site navigation.",
-        "Solved a high priority U.S. Government 508 Web Accessibility site minimum testing score requirement across more than 20,000 pages by primarly leveraging Javascript and jQuery.",
-        "Was first employee in history of this company to successfully earn the '508 Trusted Tester Certification for Software and Web Applications'.",
-        "Worked with our team to plan, design and develop a beta version of our nft marketplace project."
+        "Supported multiple web service teams in front-end web development client requests for the FDIC.gov website.",
+        "Led accessibility testing, development, and design for web and software applications in line with 508 Web standards.",
+        "Redesigned multiple global web components to comply with 508 web accessibility requirements."
       ]
     }
   ]
