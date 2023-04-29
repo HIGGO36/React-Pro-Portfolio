@@ -18,7 +18,7 @@ export default function Projects() {
 
   useEffect(() => {
     const getRepoData = () => {
-      fetch("https://higgo36.github.io/React-Pro-Portfolio/profile.json")
+      fetch("/React-Pro-Portfolio/profile.json")
         .then(result => {
           if (result.ok) {
             return result.json();
