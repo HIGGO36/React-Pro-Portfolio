@@ -22,7 +22,7 @@ const greeting = {
   username: "John D. Higgins",
   title: "Front-End Developer",
   subTitle: emoji(
-    "Creative, innovative, and reliable web developer proficient in HTML, CSS, and JavaScript. Excels in front-end responsive web development, user interface design, mobile testing, prototyping, and trouble-shooting within a team or individual setting. "
+    "Creative, innovative, and reliable web developer with strong skills in HTML, CSS, and JavaScript.  Leveraging modular design while focused on security, reusability, efficiency, scalability, and portability. Prioritizing mobile-first responsive and accessible web design, optimization to achieve faster load times, improved user experience, and easier code maintenance."
   ),
 
   resumeLink:
@@ -143,7 +143,7 @@ const educationInfo = {
       schoolName: "Florida Institute of Technology",
       logo: require("./assets/images/FIT-seal-Logo.png"),
       subHeader: "Master of Science in Computer Information Systems",
-      duration: "January 2020 - Dec 2023 (expected graduation time)",
+      duration: "January 2020 - May 2022 (expected graduation by early 2024)",
       desc: "Completed 9 out of the 10 required program courses, with the capstone remaining.",
       descBullets: ["current GPA 3.2", "Courses Completed: "]
     },
@@ -220,20 +220,20 @@ const workExperiences = {
       desc: "This venture focused on non-fungible token technologies for Ethereum blockchain, our team  began developing a decentralized application (DAPP) with a simple frontend that allowed for DeFi wallet connectivity and other key features. Additionally, we worked on the development of a smart contract, but due to unforeseen challenges, the project was not completed before the end of my tenure.",
       descBullets: [
         "Worked on venture focused on non-fungible token technologies for Ethereum blockchain projects.",
-        "Developed business plans and managed project goals using Agile Scrum methodology.",
-        "Hired and managed an international contracted employee to help with blockchain smart contracts.",
-        "Learned valuable lessons on market volatility, project risk assessment, and contingency planning."
+        "Developed a decentralized application (DAPP) with a simple frontend that allowed for DeFi wallet connectivity, minting, trading and an embedded cloud-based CMS.",
+        "Planned and designed with our backend lead developer our custom priority minting algorithm."
       ]
     },
     {
       role: "User-Interface Developer",
       company: "Unisys Corporation",
       companylogo: require("./assets/images/Unisys-U-Logo.png"),
-      date: "Feb 2019 – Dec 2019",
-      desc: "One of three primary developers in the creation and initial deployment for second version of their universal design system supporting multiple applications under the CBP umbrella.",
+      date: "Feb 2019 - Dec 2019",
+      desc: "Worked with our Creative Services Team in planning, re-designing and developing the second version of an existing universal design system supporting multiple applications under the CBP umbrella",
       descBullets: [
-        "Played a key role in the development and deployment of a universal design system for multiple applications under the CBP umbrella.",
-        "Utilized tools like GitHub, Npm, Yarn, Travis CI, Gatsby, Webpack4 to create a more efficient codebase, resulting in a 50% reduction in build times.",
+        "Leveraged primarily, JavaScript, Typescript, Sass, CSS, HTML5, Bootstrap, GitHub, Npm, Yarn, Travis CI, Gatsby, Webpack4.",
+        "Overcame challenges with integrating Webpack into the project's testing framework, asynchronous loading, and compatibility issues with multiple web browsers.",
+        "Supported the improvement and maintenance for the Design Systems CI/CD pipeline.",
         "Collaborated in an Agile Scrum team to develop user stories and ensure they met acceptance criteria."
       ]
     },
@@ -242,10 +242,12 @@ const workExperiences = {
       company: "Birchwood Media",
       companylogo: require("./assets/images/remote-dev-1.jpg"),
       date: "Oct 2018 – June 2019",
-      desc: "Modernized an older PHP website called 'Old-Friends.co's user interface using JavaScript, CSS and HTML, while being required to keep a very similar theme while also leaving the original framework in place.",
+      desc: "Modernized an older PHP website user interface utilizing JavaScript, CSS and HTML, while also being required to keep a very similar theme and leaving the original framework in place.",
       descBullets: [
-        "Modernized an older PHP website user interface, leading to improved engagement metrics by over 100%.",
-        "Designed and developed a responsive mobile-friendly layout that adapts seamlessly to different screen sizes."
+        "Created new global web elements such as navigation, layout, and interactive web forms.",
+        "Designed and developed a responsive mobile friendly layout that adapts seamlessly to different screen sizes, ensuring a consistent user experience across all devices.",
+        "Implemented interactive web forms to enhance user engagement, enabling visitors to easily submit inquiries, feedback, open and close account requests, and other types of requests through the website.",
+        "Built a new interactive navigation system that streamlined user journeys and improved engagement metrics by over 100%."
       ]
     },
     {
@@ -255,9 +257,12 @@ const workExperiences = {
       date: "April 2017 – September 2018",
       desc: "Supported multiple web service teams front-end web development client requests for the FDIC.gov website.",
       descBullets: [
-        "Supported multiple web service teams in front-end web development client requests for the FDIC.gov website.",
-        "Led accessibility testing, development, and design for web and software applications in line with 508 Web standards.",
-        "Redesigned multiple global web components to comply with 508 web accessibility requirements."
+        "Designed, developed, rapidly prototyped, evaluated and deployed for production a new global user-interface web elements for site navigation.",
+        "Solved a challenge for meeting a U.S. Government 508 web accessibility minimum site score requirement by leveraging a responsive & mobile-aware jQuery dropdown navigation plugin for the global header web component that was displayed across more than 20,000 pages.",
+        "Redesigned multiple global web components HTML structures to better comply with 508 web accessibility requirements along with allowing usability of JavaScript or jQuery scripts to provide interactive features.",
+        "Earned a Certificate of Completion from the Office of Accessible Systems & Technology for passing the ‘508 Web Accessibility Trusted Tester Exam’ provided by the Department of Homeland Security.",
+        "Led the accessibility testing, development, and design for web and software applications in line with the predefined 508 Web standards.",
+        "Utilized the Adobe CQ CMS for managing our Client Ticket Request Pipeline, within an Agile Scrum process."
       ]
     }
   ]
@@ -283,7 +288,7 @@ const achievementSection = {
       title:
         "Section 508 Trusted Tester Certification for Software and Web Applications",
       subtitle:
-        "I took courses and final TT exam through the OAST program provided by the Department of Homeland Security.",
+        "I took online courses and the final Trusted Tester exam through the OAST program provided by the Department of Homeland Security.",
       image: require("./assets/images/OAST-TT-Logo.jpg"),
       imageAlt:
         "508 Trusted Tester Certification v3 for Web & Applications from the DHS",
