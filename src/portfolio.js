@@ -214,7 +214,7 @@ const workExperiences = {
   experience: [
     {
       role: "Collaborator",
-      company: "Entrepreneurial Project",
+      company: "Entrepreneurial",
       companylogo: require("./assets/images/nftelite-tradables-logo-yellow.jpeg"),
       date: "May 2022 – January 2023",
       desc: "This venture focused on non-fungible token technologies for Ethereum blockchain, our team  began developing a decentralized application (DAPP) with a simple frontend that allowed for DeFi wallet connectivity and other key features. Additionally, we worked on the development of a smart contract, but due to unforeseen challenges, the project was not completed before the end of my tenure.",
@@ -309,7 +309,7 @@ const achievementSection = {
 const contactInfo = {
   title: emoji("Contact Me ☎️"),
   subtitle:
-    "Discuss a project or just want to say hi? My Inbox is open for all.",
+    "",
   number: "",
   email_address: "prowebdev36@gmail.com"
 };
