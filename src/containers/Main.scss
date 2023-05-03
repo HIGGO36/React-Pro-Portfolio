@@ -86,14 +86,14 @@ body {
   padding: 1.2% 1.75%;
   background: $userAuth;
   position: absolute;
-  top: 26%;
+  top: 29%;
   left: 5%;
   border-radius: 5px;
+  border: 0.15em solid #61efff;
 }
 
 .firebase-user-auth-header .auth-close-btn:hover, .firebase-user-auth-header .auth-close-btn:focus {
   opacity: 80%;
-  border: 1px solid $lightBoxShadow;
 }
 
 .firebase-user-auth-header .auth-close-btn .auth-close-icon {
@@ -188,6 +188,12 @@ top:0;
 right:0;
 }
 
+@media (max-width: 900px) {
+  .firebase-user-auth-header .auth-close-btn {
+      top: 25%;
+    }
+}
+
 
 @media only screen and (max-width: 800px) {
 
@@ -223,6 +229,15 @@ right:0;
   }
 }
 
+@media (max-width: 300px) {
+  .firebase-user-auth-header .auth-close-btn {
+    left: 0;
+    position: relative;
+    padding: 3% 5%;
+    margin-top: 5%;
+  }
+}
+
 
 @media (max-width: 250px)  {
 
@@ -232,8 +247,23 @@ right:0;
   .firebase-user-auth-h1 {
     font-size: 1rem;
   }
+    .firebase-user-auth {
+      min-width: 100%;
+    }
+
+        .firebaseui-idp-button,
+        .firebaseui-tenant-button {
+          padding: 1% 10% !important;
+          min-width: 100px !important;
+}
 }
 
+@media (max-width: 200px) {
+  .firebaseui-card-content,
+    .firebaseui-card-footer {
+      padding: 0 !important;
+    }
+}
 
 
 @import url("https://fonts.googleapis.com/css?family=Raleway");

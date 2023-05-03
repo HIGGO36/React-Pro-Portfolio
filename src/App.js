@@ -27,28 +27,30 @@ function AppContent() {
   const firestore = useFirestore();
   const [showUserAuth, setShowUserAuth] = useState(false);
   const [showUserProfileForm, setShowUserProfileForm] = useState(false);
-  const firebaseUserAuthRef = useRef(null);
   const [firebaseUiReady, setFirebaseUiReady] = useState(false);
+  const firebaseUserAuthRef = useRef(null);
   const [userData, setUserData] = useState({});
   const provider = new myFirebase.auth.GoogleAuthProvider();
 
 
-  const uiConfig = {
+const uiConfig = {
     signInFlow: "popup",
     signInSuccessUrl: window.location.href,
     signInOptions: [
       {
         provider: myFirebase.auth.GoogleAuthProvider.PROVIDER_ID,
-        // Add a custom auth callback for Google sign-in
-        customAuthParameters: {
-          prompt: 'select_account',
-        },
+        authMethod: 'https://accounts.google.com',
+        clientId: 'YOUR_GOOGLE_CLIENT_ID',
       },
       {
         provider: myFirebase.auth.EmailAuthProvider.PROVIDER_ID,
+        requireDisplayName: true,
+        signInMethod: myFirebase.auth.EmailAuthProvider.EMAIL_PASSWORD_SIGN_IN_METHOD,
         // Add a custom auth callback for Email sign-in
         customAuthParameters: {
-          showEmailAuthForm: true,
+          // Set this to `true` to show the email auth form by default
+          // when the user clicks the "Email Signin" button
+          showEmailAuthForm: false,
         },
       },
     ],
@@ -56,8 +58,6 @@ function AppContent() {
     privacyPolicyUrl: "https://www.google.com/policies/privacy/",
     callbacks: {
       signInSuccessWithAuthResult: async (authResult, redirectUrl) => {
-
-
         const isNewUser = authResult.additionalUserInfo.isNewUser;
         const user = authResult.user;
         const userRef = firestore.collection("users").doc(user.uid);
@@ -84,41 +84,36 @@ function AppContent() {
           );
         }
 
-         // Check if the email auth form should be displayed
-      const providerId = authResult.additionalUserInfo.providerId;
-      const showEmailAuthForm = !user && providerId !== myFirebase.auth.GoogleAuthProvider.PROVIDER_ID;
 
-      // Only show the email auth form if the user chose the email auth option and showEmailAuthForm is true
-      if (showEmailAuthForm) {
-      setShowUserProfileForm(true);
-      }
+        // Check if the email auth form should be displayed
+        const providerId = authResult.additionalUserInfo.providerId;
+        const showEmailAuthForm =
+          !user &&
+          providerId === myFirebase.auth.EmailAuthProvider.PROVIDER_ID &&
+          authResult.operationType === "signIn";
 
-      setShowUserAuth(false);
-      return false; // Prevent redirect after sign-in.
+        // Only show the email auth form if the user chose the email auth option and showEmailAuthForm is true
+        if (showEmailAuthForm) {
+          setShowUserProfileForm(true);
+        }
+
+        setShowUserAuth(false);
+        return false; // Prevent redirect after sign-in.
+      },
     },
-  },
+  };
+
+const handleSignIn = useCallback(() => {
+  setShowUserAuth(true);
+}, []);
+
+
+
+const handleClose = () => {
+  setShowUserAuth(false);
 };
 
-  const handleSignIn = async () => {
-    try {
-      const result = await myFirebase.auth().signInWithPopup(provider);
-      const user = result.user;
-      if (user) {
-        setShowUserAuth(false);
-      }
-    } catch (error) {
-      console.error(error);
-    }
-  };
 
-  const handleClose = async () => {
-    try {
-      setShowUserAuth(false);
-      setShowUserProfileForm(false);
-    } catch (error) {
-      console.error(error);
-    }
-  };
   
   const handleSignOut = async () => {
     try {
@@ -252,13 +247,14 @@ function AppContent() {
               </>
             )}
           </div>
-          {showUserAuth && !showUserProfileForm && (
+{showUserAuth && (
   <div ref={firebaseUserAuthRef} className="firebase-user-auth">
     <div className="firebase-user-auth-header">
       <h1 className="firebase-user-auth-h1">Get Full Access:</h1>
       <button className="auth-close-btn" onClick={handleClose}>
-        <span className="auth-close-icon">×</span>
-      </button>
+  <span className="auth-close-icon">🗙</span>
+</button>
+
     </div>
     <StyledFirebaseAuth
       uiConfig={uiConfig}
@@ -277,6 +273,8 @@ function AppContent() {
     />
   </div>
 )}
+
+
 
 
 
