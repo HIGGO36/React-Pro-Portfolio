@@ -22,11 +22,11 @@ const greeting = {
   username: "John D. Higgins",
   title: "Front-End Developer",
   subTitle: emoji(
-    "Creative, innovative, and reliable web developer with strong skills in HTML, CSS, and JavaScript.  Leveraging modular design while focused on security, reusability, efficiency, scalability, and portability. Prioritizing mobile-first responsive and accessible web design, optimization to achieve faster load times, improved user experience, and easier code maintenance."
+    "Experienced Front-End Developer with a focus on designing and implementing mobile-first responsive, accessible, secure, maintainable, and scalable web applications.  Very proficient in JavaScript, jQuery, React, CSS, HTML5, GitHub, Agile Scrum, collaboration with cross-functional teams, problem-solving, being a team player with the ability to lead and inspire others. "
   ),
 
   resumeLink:
-    "https://docs.google.com/document/d/12f1ErIoy-OFDym7pqYxdqqjHHGd7LVArcMwYckSgrhA/edit?usp=sharing", // Set to empty to hide the button
+    "https://resume.io/r/E1cdgO7nQ", // Set to empty to hide the button
 
 
   displayGreeting: true, // Set false to hide this section, defaults to true
@@ -163,46 +163,39 @@ const educationInfo = {
 const techStack = {
   viewSkillBars: true, //Set it to true to show Proficiency Section
   experience: [
-    {
-      Stack: "Web Development", //Insert stack or technology you have experience in
-      progressPercentage: "90%" //Insert relative proficiency in percentage
+      {
+      Stack: "JavaScript", //Insert stack or technology you have experience in
+      progressPercentage: "75%" //Insert relative proficiency in percentage
+    },
+      {
+      Stack: "CSS", //Insert stack or technology you have experience in
+      progressPercentage: "85%" //Insert relative proficiency in percentage
+    },
+      {
+      Stack: "SCSS", //Insert stack or technology you have experience in
+      progressPercentage: "80%" //Insert relative proficiency in percentage
+    },
+       {
+      Stack: "HTML", //Insert stack or technology you have experience in
+      progressPercentage: "85%" //Insert relative proficiency in percentage
     },
     {
-      Stack: "Responsive Mobile-First Design", //Insert stack or technology you have experience in
-      progressPercentage: "90%" //Insert relative proficiency in percentage
+      Stack: "React",
+      progressPercentage: "70%"
     },
-    {
-      Stack: "React Frameworks",
+        {
+      Stack: "jQuery",
+      progressPercentage: "80%"
+    },
+       {
+      Stack: "Typescript",
+      progressPercentage: "70%"
+    },
+             {
+      Stack: "JSX",
       progressPercentage: "75%"
     },
-    {
-      Stack: "Functional Programming",
-      progressPercentage: "80%"
-    },
-    {
-      Stack: "Modular Design",
-      progressPercentage: "80%"
-    },
-    {
-      Stack: "React Hooks",
-      progressPercentage: "90%"
-    },
-    {
-      Stack: "Bootstrap",
-      progressPercentage: "90%"
-    },
-    {
-      Stack: "Web Accessibility",
-      progressPercentage: "90%"
-    },
-    {
-      Stack: "Problem Solving",
-      progressPercentage: "95%"
-    },
-    {
-      Stack: "Team Work",
-      progressPercentage: "95%"
-    }
+       
   ],
   displayCodersrank: false // Set true to display codersrank badges section need to changes your username in src/containers/skillProgress/skillProgress.js:17:62, defaults to false
 };
@@ -217,7 +210,7 @@ const workExperiences = {
       company: "Entrepreneurial",
       companylogo: require("./assets/images/nftelite-tradables-logo-yellow.jpeg"),
       date: "May 2022 – January 2023",
-      desc: "This venture focused on non-fungible token technologies for Ethereum blockchain, our team  began developing a decentralized application (DAPP) with a simple frontend that allowed for DeFi wallet connectivity and other key features. Additionally, we worked on the development of a smart contract, but due to unforeseen challenges, the project was not completed before the end of my tenure.",
+      desc: "This venture focused on non-fungible token technologies for Ethereum blockchain, our team began developing a decentralized application (DAPP) with a simple frontend that allowed for DeFi wallet connectivity and other key features. Additionally, we worked on the development of a smart contract, but due to unforeseen challenges, the project was not completed before the end of my tenure.",
       descBullets: [
         "Worked on venture focused on non-fungible token technologies for Ethereum blockchain projects.",
         "Developed a decentralized application (DAPP) with a simple frontend that allowed for DeFi wallet connectivity, minting, trading and an embedded cloud-based CMS.",

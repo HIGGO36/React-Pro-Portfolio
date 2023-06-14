@@ -30,7 +30,7 @@ function AppContent() {
   const [firebaseUiReady, setFirebaseUiReady] = useState(false);
   const firebaseUserAuthRef = useRef(null);
   const [userData, setUserData] = useState({});
-  const provider = new myFirebase.auth.GoogleAuthProvider();
+  // const provider = new myFirebase.auth.GoogleAuthProvider();
 
 
 const uiConfig = {
