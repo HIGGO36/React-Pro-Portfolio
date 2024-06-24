@@ -3,6 +3,9 @@
   "name": "portfolio",
   "version": "0.1.0",
   "private": true,
+  "engines": {
+    "node": ">=14"
+  },
   "dependencies": {
     "colorthief": "^2.2.0",
     "enzyme": "^3.11.0",
