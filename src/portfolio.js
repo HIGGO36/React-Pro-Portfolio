@@ -20,13 +20,13 @@ const illustration = {
 
 const greeting = {
   username: "John D. Higgins",
-  title: "Front-End Developer",
+  title: "Web Developer",
   subTitle: emoji(
-    "Experienced Front-End Developer with a focus on designing and implementing mobile-first responsive, accessible, secure, maintainable, and scalable web applications.  Very proficient in JavaScript, jQuery, React, CSS, HTML5, GitHub, Agile Scrum, collaboration with cross-functional teams, problem-solving, being a team player with the ability to lead and inspire others. "
+    "Motivated and innovative Web Developer with hands-on experience in full-stack development. Proven ability to build and optimize web applications while contributing to small team efforts to ensure high-quality code and timely project delivery. Adept at collaborating with UX/UI teams to transform wireframes into responsive, user-friendly interfaces. Skilled in both front-end and back-end development, including API integration and microservices. Strong background in JavaScript, CSS, and HTML, committed to delivering high-quality, on-time, and on-budget solutions. Proudly served as a US Army Veteran, bringing discipline and dedication to all projects. "
   ),
 
   resumeLink:
-    "https://resume.io/r/E1cdgO7nQ", // Set to empty to hide the button
+    "https://docs.google.com/document/d/12rW4RfNL61vNucTpvlTsksucUAC1An4W7BaWEbew_7c/edit?usp=sharing", // Set to empty to hide the button
 
 
   displayGreeting: true, // Set false to hide this section, defaults to true
@@ -40,7 +40,7 @@ const greeting = {
 const socialMediaLinks = {
   github: "https://github.com/HIGGO36",
   linkedin: "https://www.linkedin.com/in/j-d-h/",
-  gmail: "prowebdev36@gmail.com",
+  gmail: "higginsjohnd27@gmail.com",
   // gitlab: "https://gitlab.com/saadpasta",
   // facebook: "https://www.facebook.com/saad.pasta7",
   // medium: "https://medium.com/@saadpasta",
@@ -58,78 +58,164 @@ const skillsSection = {
     "💡 Currently, I am focused on learning different React frameworks that are using Functional programming and Modular Design.",
   skills: [
     emoji(
-      "🛠️ I have a wide range of abilities in planning, designing and building web applications, interactice components and other types of assets."
-    ),
-
-    emoji(
-      "🤔 I focus on using a mobile-first approach while keeping an eye on accessiblity and performance to deliver top notch user experiences."
+      "🛠️ Front-End Development: JavaScript, jQuery, HTML5, CSS3, React, TypeScript, Next.js, Vue.js, Bootstrap, Tailwind CSS, MUI"
     ),
     emoji(
-      "🥳 Most recent success would have to be setting up a functional User Authentication and User Profile creation options using Firebase Auth and a Firestore Realtime Database. "
+      "🤔 WordPress Development: Custom Theme & Plugin Development, Theme Customization (Child Themes), Proficiency with Popular Plugins (e.g., Elementor)"
+    ),
+    emoji(
+      "💻 Back-End Development: PHP, Node.js (Express.js), MongoDB, PostgreSQL, MySQL, MariaDB, Heroku"
+    ),
+    emoji(
+      "🌐 Web 3.0: Solidity, Smart Contracts"
+    ),
+    emoji(
+      "📋 Project Management & Development Workflow: Agile, Scrum, Git, GitHub, Vercel, ServiceNow, Jira, Confluence"
+    ),
+    emoji(
+      "🎨 UI Design & Web Accessibility: Figma, Sketch, Mobile-First Design, WCAG, ARIA"
+    ),
+    emoji(
+      "🔗 Web Services & API: RESTful APIs, Custom API Endpoints"
+    ),
+    emoji(
+      "⚡ SEO & Performance: On-Page SEO, Technical SEO, Google Analytics, Lighthouse, Performance Audits, Page Speed Optimization"
+    ),
+    emoji(
+      "📊 Data Visualization: D3.js, Chart.js, Highcharts"
     )
-  ],
+  ]
+};
+
 
   /* Make Sure to include correct Font Awesome Classname to view your icon
 https://fontawesome.com/icons?d=gallery */
 
-  softwareSkills: [
-    {
-      skillName: "html-5",
-      fontAwesomeClassname: "fab fa-html5"
-    },
-    {
-      skillName: "css3",
-      fontAwesomeClassname: "fab fa-css3-alt"
-    },
-    {
-      skillName: "sass",
-      fontAwesomeClassname: "fab fa-sass"
-    },
-    {
-      skillName: "JavaScript",
-      fontAwesomeClassname: "fab fa-js"
-    },
-    {
-      skillName: "nodejs",
-      fontAwesomeClassname: "fab fa-node"
-    },
-    {
-      skillName: "react",
-      fontAwesomeClassname: "fab fa-react"
-    },
-    {
-      skillName: "npm",
-      fontAwesomeClassname: "fab fa-npm"
-    },
-    {
-      skillName: "docker",
-      fontAwesomeClassname: "fab fa-docker"
-    },
-    {
-      skillName: "cPanel",
-      fontAwesomeClassname: "fab fa-cpanel"
-    },
-    {
-      skillName: "github",
-      fontAwesomeClassname: "fab fa-github"
-    },
-    {
-      skillName: "codepen",
-      fontAwesomeClassname: "fab fa-codepen"
-    },
-    {
-      skillName: "terminal",
-      fontAwesomeClassname: "fas fa-terminal"
-    },
-    {
-      skillName: "chrome",
-      fontAwesomeClassname: "fab fa-chrome"
-    },
-    {
-      skillName: "firefox",
-      fontAwesomeClassname: "fab fa-firefox-browser"
-    }
-  
+ const softwareSkills = [
+  {
+    skillName: "html-5",
+    fontAwesomeClassname: "fab fa-html5"
+  },
+  {
+    skillName: "css3",
+    fontAwesomeClassname: "fab fa-css3-alt"
+  },
+  {
+    skillName: "sass",
+    fontAwesomeClassname: "fab fa-sass"
+  },
+  {
+    skillName: "JavaScript",
+    fontAwesomeClassname: "fab fa-js"
+  },
+  {
+    skillName: "nodejs",
+    fontAwesomeClassname: "fab fa-node"
+  },
+  {
+    skillName: "react",
+    fontAwesomeClassname: "fab fa-react"
+  },
+  {
+    skillName: "npm",
+    fontAwesomeClassname: "fab fa-npm"
+  },
+  {
+    skillName: "docker",
+    fontAwesomeClassname: "fab fa-docker"
+  },
+  {
+    skillName: "cPanel",
+    fontAwesomeClassname: "fab fa-cpanel"
+  },
+  {
+    skillName: "github",
+    fontAwesomeClassname: "fab fa-github"
+  },
+  {
+    skillName: "codepen",
+    fontAwesomeClassname: "fab fa-codepen"
+  },
+  {
+    skillName: "terminal",
+    fontAwesomeClassname: "fas fa-terminal"
+  },
+  {
+    skillName: "chrome",
+    fontAwesomeClassname: "fab fa-chrome"
+  },
+  {
+    skillName: "firefox",
+    fontAwesomeClassname: "fab fa-firefox-browser"
+  },
+  {
+    skillName: "jQuery",
+    fontAwesomeClassname: "fas fa-code"
+  },
+  {
+    skillName: "Next.js",
+    fontAwesomeClassname: "fas fa-code"
+  },
+  {
+    skillName: "Vue.js",
+    fontAwesomeClassname: "fab fa-vuejs"
+  },
+  {
+    skillName: "Bootstrap",
+    fontAwesomeClassname: "fab fa-bootstrap"
+  },
+  {
+    skillName: "Tailwind CSS",
+    fontAwesomeClassname: "fab fa-css3-alt"
+  },
+  {
+    skillName: "MUI",
+    fontAwesomeClassname: "fas fa-palette"
+  },
+  {
+    skillName: "PHP",
+    fontAwesomeClassname: "fab fa-php"
+  },
+  {
+    skillName: "MongoDB",
+    fontAwesomeClassname: "fas fa-database"
+  },
+  {
+    skillName: "PostgreSQL",
+    fontAwesomeClassname: "fas fa-database"
+  },
+  {
+    skillName: "MySQL",
+    fontAwesomeClassname: "fas fa-database"
+  },
+  {
+    skillName: "MariaDB",
+    fontAwesomeClassname: "fas fa-database"
+  },
+  {
+    skillName: "Heroku",
+    fontAwesomeClassname: "fab fa-heroku"
+  },
+  {
+    skillName: "Solidity",
+    fontAwesomeClassname: "fas fa-code"
+  },
+  {
+    skillName: "Figma",
+    fontAwesomeClassname: "fab fa-figma"
+  },
+  {
+    skillName: "Sketch",
+    fontAwesomeClassname: "fab fa-sketch"
+  },
+  {
+    skillName: "RESTful APIs",
+    fontAwesomeClassname: "fas fa-code"
+  },
+  {
+    skillName: "Google Analytics",
+    fontAwesomeClassname: "fab fa-google"
+  }
   ],
   display: true // Set false to hide this section, defaults to true
 };
@@ -143,7 +229,7 @@ const educationInfo = {
       schoolName: "Florida Institute of Technology",
       logo: require("./assets/images/FIT-seal-Logo.png"),
       subHeader: "Master of Science in Computer Information Systems",
-      duration: "January 2020 - May 2022 (expected graduation by early 2024)",
+      duration: "January 2020 - May 2024 (completed after a break from 2022-2023)",
       desc: "Completed 9 out of the 10 required program courses, with the capstone remaining.",
       descBullets: ["current GPA 3.2", "Courses Completed: "]
     },
@@ -163,19 +249,19 @@ const educationInfo = {
 const techStack = {
   viewSkillBars: true, //Set it to true to show Proficiency Section
   experience: [
-      {
+    {
       Stack: "JavaScript", //Insert stack or technology you have experience in
       progressPercentage: "75%" //Insert relative proficiency in percentage
     },
-      {
+    {
       Stack: "CSS", //Insert stack or technology you have experience in
       progressPercentage: "85%" //Insert relative proficiency in percentage
     },
-      {
+    {
       Stack: "SCSS", //Insert stack or technology you have experience in
       progressPercentage: "80%" //Insert relative proficiency in percentage
     },
-       {
+    {
       Stack: "HTML", //Insert stack or technology you have experience in
       progressPercentage: "85%" //Insert relative proficiency in percentage
     },
@@ -183,79 +269,169 @@ const techStack = {
       Stack: "React",
       progressPercentage: "70%"
     },
-        {
+    {
       Stack: "jQuery",
       progressPercentage: "80%"
     },
-       {
-      Stack: "Typescript",
+    {
+      Stack: "TypeScript",
       progressPercentage: "70%"
     },
-             {
-      Stack: "JSX",
+    {
+      Stack: "Next.js",
+      progressPercentage: "65%"
+    },
+    {
+      Stack: "Vue.js",
+      progressPercentage: "60%"
+    },
+    {
+      Stack: "Bootstrap",
       progressPercentage: "75%"
     },
-       
+    {
+      Stack: "Tailwind CSS",
+      progressPercentage: "70%"
+    },
+    {
+      Stack: "MUI",
+      progressPercentage: "65%"
+    },
+    {
+      Stack: "PHP",
+      progressPercentage: "70%"
+    },
+    {
+      Stack: "Node.js (Express.js)",
+      progressPercentage: "70%"
+    },
+    {
+      Stack: "MongoDB",
+      progressPercentage: "65%"
+    },
+    {
+      Stack: "PostgreSQL",
+      progressPercentage: "60%"
+    },
+    {
+      Stack: "MySQL",
+      progressPercentage: "65%"
+    },
+    {
+      Stack: "MariaDB",
+      progressPercentage: "60%"
+    },
+    {
+      Stack: "Heroku",
+      progressPercentage: "65%"
+    },
+    {
+      Stack: "Solidity",
+      progressPercentage: "50%"
+    },
+    {
+      Stack: "Figma",
+      progressPercentage: "70%"
+    },
+    {
+      Stack: "Sketch",
+      progressPercentage: "65%"
+    },
+    {
+      Stack: "RESTful APIs",
+      progressPercentage: "75%"
+    },
+    {
+      Stack: "Google Analytics",
+      progressPercentage: "70%"
+    }
   ],
-  displayCodersrank: false // Set true to display codersrank badges section need to changes your username in src/containers/skillProgress/skillProgress.js:17:62, defaults to false
+  displayCodersrank: false // Set true to display codersrank badges section need to change your username in src/containers/skillProgress/skillProgress.js:17:62, defaults to false
 };
+
 
 // Work experience section
 
 const workExperiences = {
   display: true, //Set it to true to show workExperiences Section
   experience: [
+
+        {
+      role: "Web Developer (Contract) | Remote",
+      company: "Casino Finder",
+      companylogo: require("./assets/images/remote-dev-1.jpg"),
+      date: "August 2023 – March 2024",
+      desc: "Customized the company's Mercury plugin components, developed new advertisement features with PHP, HTML, CSS, and JavaScript, optimized data display efficiency, and extensively used Elementor for WordPress development.",
+      descBullets: [
+        "Successfully customized the company's Mercury plugin components for online casino marketing client tickets.",
+        "Developed new advertisement components using a combination of PHP, HTML, CSS, and JavaScript, enhancing user engagement.",
+        "Optimized page load times and improved data display efficiency through code streamlining and database interaction enhancements.",
+        "Utilized Elementor tools extensively for WordPress development."
+      ]
+    },
+    
     {
-      role: "Collaborator",
-      company: "Entrepreneurial",
+      role: "Web Developer & Contributor | Remote",
+      company: "NFT Elites, LLC.",
       companylogo: require("./assets/images/nftelite-tradables-logo-yellow.jpeg"),
-      date: "May 2022 – January 2023",
-      desc: "This venture focused on non-fungible token technologies for Ethereum blockchain, our team began developing a decentralized application (DAPP) with a simple frontend that allowed for DeFi wallet connectivity and other key features. Additionally, we worked on the development of a smart contract, but due to unforeseen challenges, the project was not completed before the end of my tenure.",
+      date: "April 2022 – July 2023",
+      desc: "Developed a DAPP with intuitive UI for DeFi wallet, planned and designed a robust minting algorithm, utilized JavaScript for NFT technologies on Ethereum blockchain, and contributed to project planning and user engagement improvements.",
       descBullets: [
         "Worked on venture focused on non-fungible token technologies for Ethereum blockchain projects.",
         "Developed a decentralized application (DAPP) with a simple frontend that allowed for DeFi wallet connectivity, minting, trading and an embedded cloud-based CMS.",
-        "Planned and designed with our backend lead developer our custom priority minting algorithm."
+        "Contributed to project planning and design, achieving measurable improvements in user engagement."
       ]
     },
+
+     {
+      role: " Web Developer (Contract) | Remote",
+      company: "Birchwood Media",
+      companylogo: require("./assets/images/remote-dev-1.jpg"),
+      date: "July 2021 - March 2022",
+      desc: "Enhanced PHP website UI with JavaScript, CSS, HTML, developed global web elements, designed responsive mobile layouts, implemented interactive web forms, and improved user journeys with an interactive navigation system.",
+      descBullets: [
+        "Enhanced PHP website UI with JavaScript, CSS, HTML, maintaining original framework.",
+        "Developed global web elements, improving site navigation and layout.",
+        "Designed responsive mobile layout, ensuring consistent user experience on all devices.",
+        "Implemented interactive web forms, boosting user engagement and request handling."
+        "Created an interactive navigation system, improving user journeys and engagement metrics."
+      ]
+    },
+    
     {
       role: "User-Interface Developer",
       company: "Unisys Corporation",
       companylogo: require("./assets/images/Unisys-U-Logo.png"),
-      date: "Feb 2019 - Dec 2019",
-      desc: "Worked with our Creative Services Team in planning, re-designing and developing the second version of an existing universal design system supporting multiple applications under the CBP umbrella",
+      date: "January 2019 - June 2021",
+      desc: "Redesigned a universal design system for CBP applications, integrated advanced JavaScript for improved user engagement, optimized build times, enhanced browser support, improved accessibility compliance, and provided weekly guidance on JavaScript and Section 508 accessibility to small teams.",
       descBullets: [
-        "Leveraged primarily, JavaScript, Typescript, Sass, CSS, HTML5, Bootstrap, GitHub, Npm, Yarn, Travis CI, Gatsby, Webpack4.",
-        "Overcame challenges with integrating Webpack into the project's testing framework, asynchronous loading, and compatibility issues with multiple web browsers.",
-        "Supported the improvement and maintenance for the Design Systems CI/CD pipeline.",
-        "Collaborated in an Agile Scrum team to develop user stories and ensure they met acceptance criteria."
+        "Collaborated with Creative Services to redesign a universal design system for CBP applications.",
+        "Enhanced UI by integrating advanced JavaScript, improving user engagement.",
+        "Slashed build times by 50% through optimized script development.",
+        "Solved Webpack integration issues, enhancing browser support."
+        "Improved application accessibility, ensuring compliance with WCAG 2.1 standards."
+        "Refined Webpack configuration, ensuring optimal performance and compatibility."
+        "Implemented lazy-loading for images, decreasing page load times by 30%."
+        "Team Leader: Provided weekly guidance and support to small teams on using JavaScript and meeting Section 508 accessibility requirements."
       ]
     },
-    {
-      role: "Web Developer",
-      company: "Birchwood Media",
-      companylogo: require("./assets/images/remote-dev-1.jpg"),
-      date: "Oct 2018 – June 2019",
-      desc: "Modernized an older PHP website user interface utilizing JavaScript, CSS and HTML, while also being required to keep a very similar theme and leaving the original framework in place.",
-      descBullets: [
-        "Created new global web elements such as navigation, layout, and interactive web forms.",
-        "Designed and developed a responsive mobile friendly layout that adapts seamlessly to different screen sizes, ensuring a consistent user experience across all devices.",
-        "Implemented interactive web forms to enhance user engagement, enabling visitors to easily submit inquiries, feedback, open and close account requests, and other types of requests through the website.",
-        "Built a new interactive navigation system that streamlined user journeys and improved engagement metrics by over 100%."
-      ]
-    },
+   
     {
       role: "Application Systems Developer II & Certified DHS 508 Trusted Tester (TT)",
       company: "Cascades Technologies, Inc.",
       companylogo: require("./assets/images/CTI-logo.png"),
-      date: "April 2017 – September 2018",
-      desc: "Supported multiple web service teams front-end web development client requests for the FDIC.gov website.",
+      date: "April 2017 - December 2018",
+      desc: "Developed web components ensuring Section-508 compliance, built keyboard-accessible navigation for FDIC.gov, facilitated JavaScript development across teams, managed client ticket requests in Agile Scrum, coordinated UX integration of accessibility standards, and led efforts to guide teams on best practices for JavaScript usage and web accessibility.",
       descBullets: [
-        "Designed, developed, rapidly prototyped, evaluated and deployed for production a new global user-interface web elements for site navigation.",
-        "Solved a challenge for meeting a U.S. Government 508 web accessibility minimum site score requirement by leveraging a responsive & mobile-aware jQuery dropdown navigation plugin for the global header web component that was displayed across more than 20,000 pages.",
-        "Redesigned multiple global web components HTML structures to better comply with 508 web accessibility requirements along with allowing usability of JavaScript or jQuery scripts to provide interactive features.",
-        "Earned a Certificate of Completion from the Office of Accessible Systems & Technology for passing the ‘508 Web Accessibility Trusted Tester Exam’ provided by the Department of Homeland Security.",
-        "Led the accessibility testing, development, and design for web and software applications in line with the predefined 508 Web standards.",
-        "Utilized the Adobe CQ CMS for managing our Client Ticket Request Pipeline, within an Agile Scrum process."
+        "Designed and developed web components, ensuring Section-508 compliance, enhancing accessibility.",
+        "Built fully keyboard-accessible navigation for the FDIC.gov site, improving user experience.",
+        "Supported JavaScript development across teams, facilitating collaborative progress.",
+        "Managed client ticket requests via ServiceNow in Agile Scrum, ensuring timely resolutions.",
+        "Earned DHS 508 Trusted Tester certification, demonstrating web accessibility expertise.",
+        "Coordinated with UX teams to integrate accessibility standards into new designs."
+        "Led cross-functional teams to align web design with accessibility standards."
+        "Conducted thorough code reviews to ensure robustness and adherence to best practices."
+        "Team Leader: Led efforts to educate and guide teams on best practices for JavaScript usage and Section 508 web accessibility compliance."
       ]
     }
   ]
@@ -284,7 +460,7 @@ const achievementSection = {
         "I took online courses and the final Trusted Tester exam through the OAST program provided by the Department of Homeland Security.",
       image: require("./assets/images/OAST-TT-Logo.jpg"),
       imageAlt:
-        "508 Trusted Tester Certification v3 for Web & Applications from the DHS",
+        "DHS Office of Accessible Systems & Technology | Section 508 Trusted Tester Certification",
       footerLink: [
         {
           name: "Certification",
@@ -299,6 +475,16 @@ const achievementSection = {
           url: "https://www.dhs.gov/508-testing"
         }
       ]
+    },
+
+    {
+      title:
+        "Military Service",
+      subtitle:
+        "United States Army Veteran | Honorably Served Four Years",
+      // image: require("./assets/images/OAST-TT-Logo.jpg"),
+      // imageAlt:
+      //   "DHS Office of Accessible Systems & Technology | Section 508 Trusted Tester Certification",
     }
   ],
   display: true // Set false to hide this section, defaults to true
